@@ -51,7 +51,8 @@
 .job-wrapper:hover {
   transform: scale(1.07);
   background-color: #dee2e6b2;
-  transition:  1s
+  transition:  1s;
+  cursor: pointer;
 }
 
 .job-title-days-wrapper {

@@ -11,7 +11,7 @@ export function ProfilePage() {
             <div className="top-profile-pic-wrapper">
               <img
                 id="top-profile-pic"
-                src="/public/assets/account_circle_black_24dp.svg"
+                src="/assets/account_circle_black_24dp.svg"
                 alt=""
               />
             </div>

@@ -1,4 +1,5 @@
 import { Header } from "../components/Header";
+import Modals from "../components/modals/Modals";
 import "../styling/home.css";
 
 export function Home() {

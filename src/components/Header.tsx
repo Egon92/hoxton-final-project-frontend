@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import "../styling/header.css";
+import { useStore } from "../components/store"
+import Modals from "./modals/Modals";
 
 export function Header() {
     const navigate = useNavigate();
+  const { updateModal } = useStore()
+
     return (
         <section className="header">
             <nav className="nav-bar">
@@ -18,17 +22,17 @@ export function Header() {
                     </form>
                 </div>
                 <div className="right-nav">
-                    <div className="sign-in-header-wrapper">sign in</div>
+                    <div onClick={() => {updateModal('sign-in')}} className="sign-in-header-wrapper">sign in</div>
                     <div className="want-to-hire-header-wrapper">
-                        <span id="want-to-hire">| want to hire</span>
+                        <span onClick={() => {updateModal('sign-up-as-employer')}} id="want-to-hire">| want to hire</span>
                     </div>
                     <div className="want-to-work-header-wrapper">
-                        <span id="want-to-work">| want to work</span>
+                        <span onClick={() => {updateModal('sign-up-as-employee')}} id="want-to-work">| want to work</span>
                     </div>
                 </div>
             </nav>
             {/* <div className="top-jobs-bar">Top jobs</div> */}
-
+            <Modals />
         </section>
     );
 }
