@@ -34,6 +34,7 @@
   align-content: start;
   min-width: max-content;
   gap: 2rem;
+  overflow: hidden;
   /* border: 1px solid black; */
 }
 .job-wrapper {
