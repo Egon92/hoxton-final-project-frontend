@@ -1,0 +1,83 @@
+.home-wrapper {
+  height: 100%;
+  width: 100%;
+  display: grid;
+}
+.home-main-wrapper {
+  display: grid;
+  grid-template-rows: 15rem 1fr;
+  align-content: start;
+  justify-content: center;
+  margin-top: 9rem;
+}
+.top-main-home-wrapper {
+  display: grid;
+  border: 1px solid black;
+  place-content: center;
+  min-width: max-content;
+}
+.top-main-job-wrapper {
+  display: grid;
+  grid-template-columns: 150px 50rem;
+  align-content: start;
+  justify-content: center;
+  background-color: rgb(168, 175, 182);
+  gap: 1rem;
+}
+.top-profile-pic-wrapper {
+  display: grid;
+  place-content: center;
+  width: 170px;
+}
+#top-profile-pic {
+  width: 170px;
+}
+.top-job-description-wrapper {
+  display: grid;
+  grid-template-rows: 20px 70px 10px;
+  align-content: center;
+  justify-content: start;
+}
+.bottom-main-home-wrapper {
+  display: grid;
+  width: 0.75fr;
+  place-content: center;
+  align-content: start;
+  min-width: max-content;
+  gap: 2rem;
+}
+.bottom-job-wrapper {
+  padding: 0.3rem;
+  background-color: (0, 0, 0, 0.04);
+  border: 0.1px solid rgb(168, 175, 182);
+  display: grid;
+  width: 100%;
+  grid-template:
+    "bottom-job-title-wrapper      bottom-payment-wrapper" 30px
+    "bottom-job-description-wrapper   bottom-payment-wrapper" 100px/
+    50rem 100px;
+}
+.bottom-job-wrapper:hover {
+  transform: scale(1.07);
+  background-color: #dee2e6b2;
+  transition: 1s;
+}
+.bottom-job-title-wrapper {
+  grid-area: bottom-job-title-wrapper;
+  display: grid;
+  grid-auto-flow: column;
+  place-content: start;
+  gap: 1rem;
+}
+.bottom-job-description-wrapper {
+  grid-area: bottom-job-description-wrapper;
+  display: grid;
+  place-content: start;
+  margin: 0.5rem;
+}
+.bottom-payment-wrapper {
+  grid-area: bottom-payment-wrapper;
+  display: grid;
+  align-content: start;
+  justify-content: center;
+}
