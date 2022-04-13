@@ -72,3 +72,9 @@ nav {
   border: none;
   backdrop-filter: blur(2px);
 }
+
+.want-to-hire-header-wrapper,
+.sign-in-header-wrapper,
+.want-to-work-header-wrapper:hover {
+  cursor: pointer;
+}
