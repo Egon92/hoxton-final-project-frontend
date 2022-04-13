@@ -4,6 +4,7 @@ import { SignIn } from "./pages/SignIn";
 import { SignUpAsEmployee } from "./pages/SignUpAsEmployee";
 import { SignUpAsEmployer } from "./pages/SignUpAsEmployer";
 import { Home } from "./pages/Home";
+import Project from "./pages/project";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/sign-up/employee' element={< SignUpAsEmployee />} />
         <Route path='/sign-up/employer' element={< SignUpAsEmployer />} />
         <Route path='/home' element={< Home />} />
+        <Route path='/home/:id' element={< Project />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </div>
