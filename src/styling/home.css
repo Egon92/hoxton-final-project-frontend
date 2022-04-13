@@ -2,20 +2,22 @@
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: repeat(2, auto);
-  gap: 10rem;
+  /* grid-template-rows: repeat(2, auto); */
+  /* gap: 10rem; */
 }
 .home-main-wrapper {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: 15rem  1fr;
   /* align-content: start;
   justify-content: center; */
-  width: 1fr;
-  margin: 10rem;
+  /* width: 1fr; */
+  margin-top: 9rem;
+  
 }
 .left-home-wrapper {
   display: grid;
   grid-auto-flow: row;
+  /* border: 1px solid black; */
 
   min-width: max-content;
 }
@@ -31,17 +33,27 @@
   place-content: center;
   align-content: start;
   min-width: max-content;
-  gap: 3rem;
+  gap: 2rem;
+  /* border: 1px solid black; */
 }
 .job-wrapper {
-  background-color: rgba(128, 128, 128, 0.47);
+  padding: 0.3rem;
+  background-color:(0, 0, 0, 0.04);
+  border: 0.1px solid rgb(168, 175, 182);
   display: grid;
-  width: 0.75fr;
+  width: 100%;
   grid-template:
     "job-title-days-wrapper      payment-wrapper" 30px
     "job-description-wrapper   payment-wrapper" 100px/
-    600px 100px;
+    70rem 100px;
 }
+
+.job-wrapper:hover {
+  transform: scale(1.07);
+  background-color: #dee2e6b2;
+  transition:  1s
+}
+
 .job-title-days-wrapper {
   grid-area: job-title-days-wrapper;
   display: grid;

@@ -27,7 +27,7 @@ export function Header() {
                     </div>
                 </div>
             </nav>
-            <div className="top-jobs-bar">Top jobs</div>
+            {/* <div className="top-jobs-bar">Top jobs</div> */}
 
         </section>
     );

@@ -46,7 +46,7 @@ nav {
   place-content: center;
   font-weight: 700;
 }
-.top-jobs-bar {
+/* .top-jobs-bar {
   display: grid;
   justify-content: start;
   align-content: center;
@@ -55,7 +55,7 @@ nav {
   font-size: 25px;
   font-weight: 900;
   width: 1fr;
-}
+} */
 .search-form-wrapper {
   display: grid;
   grid-template-columns: 1fr auto;
