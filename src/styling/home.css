@@ -11,6 +11,7 @@
   /* align-content: start;
   justify-content: center; */
   width: 1fr;
+  margin: 10rem;
 }
 .left-home-wrapper {
   display: grid;
