@@ -1,4 +1,61 @@
 .home-wrapper {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  gap: 10rem;
+}
+.home-main-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  /* align-content: start;
+  justify-content: center; */
+  width: 1fr;
+}
+.left-home-wrapper {
+  display: grid;
+  grid-auto-flow: row;
+
+  min-width: max-content;
+}
+.filter-by-wrapper {
+  display: grid;
+  align-content: start;
+  justify-content: center;
+}
+.right-home-wrapper {
+  display: grid;
+  grid-auto-flow: row;
+  width: 0.75fr;
+  place-content: center;
+  align-content: start;
+  min-width: max-content;
+  gap: 3rem;
+}
+.job-wrapper {
+  background-color: rgba(128, 128, 128, 0.47);
+  display: grid;
+  width: 0.75fr;
+  grid-template:
+    "job-title-days-wrapper      payment-wrapper" 30px
+    "job-description-wrapper   payment-wrapper" 100px/
+    600px 100px;
+}
+.job-title-days-wrapper {
+  grid-area: job-title-days-wrapper;
+  display: grid;
+  grid-auto-flow: column;
+  align-content: center;
+}
+.job-description-wrapper {
+  grid-area: job-description-wrapper;
+  display: grid;
+  place-content: start;
+  margin: 0.5rem;
+}
+.payment-wrapper {
+  grid-area: payment-wrapper;
+  display: grid;
+  align-content: start;
+  justify-content: center;
 }

@@ -1,5 +1,64 @@
 .header {
-    height: 10%;
-    background-color: white;
-    outline: solid 1px black;
+  background-color: #fbcd08;
+  display: grid;
+  grid-auto-flow: row;
+  height: 100px;
+  width: 1fr;
+}
+nav {
+  display: grid;
+  grid-auto-flow: column;
+  place-content: space-between;
+  width: 0.25fr;
+}
+.left-nav {
+  display: grid;
+  place-content: center;
+  height: 100%;
+}
+.logo-wrapper {
+  display: grid;
+  place-content: center;
+  width: 100px;
+  padding-left: 7rem;
+}
+#logo-pic {
+  display: grid;
+  place-content: center;
+  height: 100px;
+}
+.right-nav {
+  display: grid;
+  grid-auto-flow: column;
+  place-content: center;
+  padding-right: 3rem;
+  gap: 1rem;
+  width: 0.75fr;
+}
+.sign-in-header-wrapper {
+  display: grid;
+  place-content: center;
+  font-weight: 700;
+}
+.top-jobs-bar {
+  display: grid;
+  justify-content: start;
+  align-content: center;
+  height: 60px;
+  padding-left: 2rem;
+  font-size: 25px;
+  font-weight: 900;
+  width: 1fr;
+}
+.search-form-wrapper {
+  display: grid;
+  width: 1fr;
+  height: 50px;
+  padding: 0 2rem;
+}
+.search-bar {
+  display: grid;
+  padding-left: 1rem;
+  border-radius: 5px;
+  border: none;
 }
