@@ -8,7 +8,7 @@
   grid-template-rows: 10rem 1fr;
   align-content: start;
   justify-content: center;
-  margin-top: 9rem;
+  margin-top: 3rem;
   gap: 2rem;
 }
 .top-main-home-wrapper {
@@ -53,7 +53,7 @@
   display: grid;
   width: 100%;
   grid-template:
-    "bottom-job-title-wrapper      bottom-payment-wrapper" 30px
+    "bottom-job-title-wrapper      bottom-payment-wrapper" 30px 
     "bottom-job-description-wrapper   bottom-payment-wrapper" 100px/
     50rem 100px;
 }
