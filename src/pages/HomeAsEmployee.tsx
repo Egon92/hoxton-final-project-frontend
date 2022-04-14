@@ -1,7 +1,10 @@
 import { HeaderAsEmployee } from "../components/HeaderAsEmployee";
 import "../styling/homeAsEmployee.css";
 export function HomeAsEmployee() {
+
+
   return (
+
     <section className="home-wrapper">
       <HeaderAsEmployee />
       <main className="home-main-wrapper">

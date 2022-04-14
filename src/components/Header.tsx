@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "../styling/header.css";
 import { useStore } from "../components/store"
 import Modals from "./modals/Modals";
+import { Link } from "react-router-dom";
 
 export function Header() {
     const navigate = useNavigate();
@@ -12,7 +13,9 @@ export function Header() {
             <nav className="nav-bar">
                 <div className="left-nav">
                     <div className="logo-wrapper">
-                        <img id="logo-pic" src={`/assets/logoworkin.png`} alt="" />
+                        <Link to={'/home'}>
+                            <img id="logo-pic" src={`/assets/logoworkin.png`} alt="" />
+                        </Link>
                     </div>
                 </div>
                 <div className="center-nav">
@@ -32,6 +35,7 @@ export function Header() {
                 </div>
             </nav>
             {/* <div className="top-jobs-bar">Top jobs</div> */}
+            {/* @ts-ignore */}
             <Modals />
         </section>
     );
