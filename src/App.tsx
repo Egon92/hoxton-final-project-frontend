@@ -4,6 +4,7 @@ import { Home } from "./pages/Home";
 import { HomeAsEmployee } from "./pages/HomeAsEmployee";
 import { HomeAsEmployer } from "./pages/HomeAsEmployer";
 import { ProfilePage } from "./pages/ProfilePage";
+import { ProfilePageEmployer } from "./pages/ProfilePageEmployer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/employee" element={<HomeAsEmployee />} />
         <Route path="/employer" element={<HomeAsEmployer />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profileEmployer" element={<ProfilePageEmployer />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </div>
