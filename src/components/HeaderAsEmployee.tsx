@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styling/headerAsEmployee.css";
+import { useStore } from "./store";
 
 
 export function HeaderAsEmployee() {
 
-
+  const signOut = useStore(store => store.signOut);
+  const navigate = useNavigate()
   return (
 
     <section className="header-as-employee">
@@ -27,11 +29,14 @@ export function HeaderAsEmployee() {
         <div className="right-nav">
           <div className="notifications-header-wrapper">notifications</div>
           <div className="sign-out-header-wrapper">
-            <span id="want-to-hire">| sign out</span>
+            <button id="want-to-hire" onClick={() => {
+              signOut()
+              navigate('/home')
+            }} >| sign out</button>
           </div>
           <div className="username-pic-header-wrapper">
             <Link to={'/profile'}>
-              <span id="username">| username</span>
+              <span id="username" >| username</span>
             </Link>
             <img
               id="user-pic"

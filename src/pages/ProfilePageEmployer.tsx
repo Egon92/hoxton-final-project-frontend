@@ -1,13 +1,15 @@
-import { Header } from "../components/Header";
+import { HeaderAsEmployer } from "../components/HeaderAsEmployer";
 import Modals from "../components/modals/Modals";
 import { useStore } from "../components/store"
 import '../styling/profileEmployer.css'
 
 export function ProfilePageEmployer() {
-  const { updateModal } = useStore()
+
+    const { updateModal } = useStore()
+
     return (
         <section className="profile-wrapper">
-            <Header />
+            <HeaderAsEmployer />
             <main className="main-wrapper">
                 <div className="employer-info-wrapper">
                     <img src="/assets/account_circle_black_24dp.svg" alt="" />
@@ -19,7 +21,7 @@ export function ProfilePageEmployer() {
                 </div>
                 <div className="employer-jobs-info">
                     <h1>Previous jobs posted</h1>
-                    <button onClick={() => {updateModal('post-job')}}>Post a job</button>
+                    <button onClick={() => { updateModal('post-job') }}>Post a job</button>
                     <div className="job-wrapper">
                         <div className="job-title-days-wrapper">
                             <span id="job-title-wrapper">Job title</span>

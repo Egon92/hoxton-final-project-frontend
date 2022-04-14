@@ -7,11 +7,17 @@ import { ProfilePage } from "./pages/ProfilePage";
 import { ProfilePageEmployer } from "./pages/ProfilePageEmployer";
 import Project from "./pages/Project";
 import ProjectAsEmployee from "./pages/ProjectAsEmployee";
+import { useStore } from "./components/store";
+import { useEffect } from "react";
 
 
 
 
 function App() {
+  const validate = useStore(store => store.validate)
+  useEffect(() => {
+    validate();
+  }, []);
   return (
     <div className="App">
       <Routes>
