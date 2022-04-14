@@ -1,0 +1,45 @@
+.main-wrapper {
+    display: grid;
+    grid-gap: 1rem;
+    justify-items: center;
+}
+.employer-info-wrapper img{
+    width: 9rem;
+}
+.employer-info-wrapper {
+    display: grid;
+    grid-auto-flow: column;
+    width: 70%;
+    align-items: center;
+    grid-gap: 1rem;
+    justify-content: center;
+}
+
+.employer-details {
+    display: grid;
+    grid-gap: .4rem;
+}
+
+.employer-details p {
+    width: 70ch;
+}
+
+.employer-jobs-info {
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.employer-jobs-info button {
+    background: -webkit-linear-gradient(#474747, #757575);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  width: 270px;
+  cursor: pointer; 
+}
+
+.employer-jobs-info button:hover {
+    transform: scale(1.07);
+    transition: .2s;
+}

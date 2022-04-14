@@ -1,4 +1,5 @@
 import { useStore } from "../store"
+import PostJobModal from "./PostJobModal"
 import SignInModal from "./SignInModal"
 import SignUpEmployeeModal from "./SignUpEmployee"
 import SignUpEmployerModal from "./SignUpEmployer"
@@ -16,5 +17,8 @@ export default function Modals() {
     }
     else if (modal === 'sign-up-as-employer') {
         return <div>{< SignUpEmployerModal />}</div>
+    }
+    else if (modal === 'post-job') {
+        return <div>{< PostJobModal />}</div>
     }
 }
