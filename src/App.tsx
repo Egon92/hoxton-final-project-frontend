@@ -4,6 +4,7 @@ import { Home } from "./pages/Home";
 import { HomeAsEmployee } from "./pages/HomeAsEmployee";
 import { HomeAsEmployer } from "./pages/HomeAsEmployer";
 import { ProfilePage } from "./pages/ProfilePage";
+import Project from "./pages/Project";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route index element={<Navigate replace to="/home" />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/home/:id" element={<Project />} />
         <Route path="/employee" element={<HomeAsEmployee />} />
         <Route path="/employer" element={<HomeAsEmployer />} />
         <Route path="/profile" element={<ProfilePage />} />

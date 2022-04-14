@@ -2,6 +2,7 @@ import { useStore } from "../store"
 import SignInModal from "./SignInModal"
 import SignUpEmployeeModal from "./SignUpEmployee"
 import SignUpEmployerModal from "./SignUpEmployer"
+
 export default function Modals() {
     const { modal } = useStore()
     if (modal === '') {
