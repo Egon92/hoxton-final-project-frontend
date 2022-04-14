@@ -14,11 +14,11 @@ export default function SignInModal() {
                 <form>
                     <div>
                         <label htmlFor="email">Enter email</label>
-                        <input type="email" name="email" placeholder="Type Here..."/>
+                        <input type="email" required name="email" placeholder="Type Here..."/>
                     </div>
                     <div>
                         <label htmlFor="password">Enter password</label>
-                        <input type="password" name="password" placeholder="Type Here..."/>
+                        <input type="password" required name="password" placeholder="Type Here..."/>
                     </div>
                     <button type="submit">
                         Submit

@@ -26,35 +26,35 @@ export default function SignUpEmployerModal() {
                     }}>
                         <div>
                             <label htmlFor="name">Enter Full Name</label>
-                            <input type="text" name="name" placeholder="Type Here..." />
+                            <input type="text" name="name" placeholder="Type Here..."  required/>
                         </div>
                         <div>
                             <label htmlFor="username">Enter username</label>
-                            <input type="text" name="username" placeholder="Type Here..." />
+                            <input type="text" name="username" placeholder="Type Here..."  required/>
                         </div>
                         <div>
                             <label htmlFor="email">Enter email</label>
-                            <input type="email" name="email" placeholder="Type Here..." />
+                            <input type="email" name="email" placeholder="Type Here..."  required/>
                         </div>
                         <div>
                             <label htmlFor="password">Enter password</label>
-                            <input type="password" name="password" placeholder="Type Here..." />
+                            <input type="password" name="password" placeholder="Type Here..."  required/>
                         </div>
                         <div>
                             <label htmlFor="avatar">Enter avatar url</label>
-                            <input type="url" name="avatar" placeholder="Type Here..." />
+                            <input type="url" name="avatar" placeholder="Type Here..."  required/>
                         </div>
                         <div>
                             <label htmlFor="phone">Enter phone number</label>
-                            <input type="tel" name="phone" placeholder="Type Here..." />
+                            <input type="tel" name="phone" placeholder="Type Here..."  required/>
                         </div>
                         <div>
                             <label htmlFor="address">Enter address</label>
-                            <input type="text" name="address" placeholder="Type Here..." />
+                            <input type="text" name="address" placeholder="Type Here..."  required/>
                         </div>
                         <div>
                             <label htmlFor="bio">Enter bio</label>
-                            <input type="text" name="bio" placeholder="Type Here..." />
+                            <input type="text" name="bio" placeholder="Type Here..."  required/>
                         </div>
 
                         <button type="submit" onSubmit={() => {
