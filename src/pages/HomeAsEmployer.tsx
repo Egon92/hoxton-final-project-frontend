@@ -1,4 +1,4 @@
-import { HeaderAsEmployee } from "../components/HeaderAsEmployee";
+import { HeaderAsEmployer } from "../components/HeaderAsEmployer";
 import "../styling/homeAsEmployer.css";
 
 
@@ -9,7 +9,7 @@ export function HomeAsEmployer() {
   return (
 
     <section className="home-wrapper">
-      <HeaderAsEmployee />
+      <HeaderAsEmployer />
       <main className="home-main-wrapper">
         <div className="left-home-wrapper">
           <div className="filter-by-wrapper">

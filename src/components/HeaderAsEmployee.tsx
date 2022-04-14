@@ -36,7 +36,7 @@ export function HeaderAsEmployee() {
           </div>
           <div className="username-pic-header-wrapper">
             <Link to={'/profile'}>
-              <span id="username" >| username</span>
+              <span id="username" >| Profile</span>
             </Link>
             <img
               id="user-pic"
