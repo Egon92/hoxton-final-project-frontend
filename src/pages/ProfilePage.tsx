@@ -5,7 +5,7 @@ export function ProfilePage() {
   return (
     <section className="home-wrapper">
       <HeaderAsEmployee />
-      <main className="home-main-wrapper">
+      <main className="profile-home-main-wrapper">
         <div className="top-main-home-wrapper">
           <div className="top-main-job-wrapper">
             <div className="top-profile-pic-wrapper">
@@ -23,6 +23,60 @@ export function ProfilePage() {
           </div>
         </div>
         <div className="bottom-main-home-wrapper">
+          <div className="bottom-job-wrapper">
+            <div className="bottom-job-title-wrapper">
+              <span id="bottom-job-title-wrapper">Job title</span>
+            </div>
+            <div className="bottom-job-description-wrapper">
+              <span id="bottom-job-description">Job description</span>
+            </div>
+            <div className="bottom-payment-wrapper">Payment</div>
+          </div>
+          <div className="bottom-job-wrapper">
+            <div className="bottom-job-title-wrapper">
+              <span id="bottom-job-title-wrapper">Job title</span>
+            </div>
+            <div className="bottom-job-description-wrapper">
+              <span id="bottom-job-description">Job description</span>
+            </div>
+            <div className="bottom-payment-wrapper">Payment</div>
+          </div>
+          <div className="bottom-job-wrapper">
+            <div className="bottom-job-title-wrapper">
+              <span id="bottom-job-title-wrapper">Job title</span>
+            </div>
+            <div className="bottom-job-description-wrapper">
+              <span id="bottom-job-description">Job description</span>
+            </div>
+            <div className="bottom-payment-wrapper">Payment</div>
+          </div>
+          <div className="bottom-job-wrapper">
+            <div className="bottom-job-title-wrapper">
+              <span id="bottom-job-title-wrapper">Job title</span>
+            </div>
+            <div className="bottom-job-description-wrapper">
+              <span id="bottom-job-description">Job description</span>
+            </div>
+            <div className="bottom-payment-wrapper">Payment</div>
+          </div>
+          <div className="bottom-job-wrapper">
+            <div className="bottom-job-title-wrapper">
+              <span id="bottom-job-title-wrapper">Job title</span>
+            </div>
+            <div className="bottom-job-description-wrapper">
+              <span id="bottom-job-description">Job description</span>
+            </div>
+            <div className="bottom-payment-wrapper">Payment</div>
+          </div>
+          <div className="bottom-job-wrapper">
+            <div className="bottom-job-title-wrapper">
+              <span id="bottom-job-title-wrapper">Job title</span>
+            </div>
+            <div className="bottom-job-description-wrapper">
+              <span id="bottom-job-description">Job description</span>
+            </div>
+            <div className="bottom-payment-wrapper">Payment</div>
+          </div>
           <div className="bottom-job-wrapper">
             <div className="bottom-job-title-wrapper">
               <span id="bottom-job-title-wrapper">Job title</span>
