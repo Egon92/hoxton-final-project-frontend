@@ -3,12 +3,13 @@
   width: 100%;
   display: grid;
 }
-.home-main-wrapper {
+.profile-home-main-wrapper {
   display: grid;
   grid-template-rows: 15rem 1fr;
   align-content: start;
   justify-content: center;
   margin-top: 9rem;
+  gap: 2rem;
 }
 .top-main-home-wrapper {
   display: grid;
