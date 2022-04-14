@@ -22,6 +22,7 @@ export default function SignUpEmployeeModal() {
                         e.preventDefault()
                         signUp(e.target.username.value, e.target.name.value, e.target.email.value, e.target.password.value, e.target.avatar.value, Number(e.target.phone.value), e.target.address.value, e.target.bio.value, false)
                         updateModal('');
+                        navigate('/profile')
                     }}>
                         <div>
                             <label htmlFor="name">Enter Full Name</label>
