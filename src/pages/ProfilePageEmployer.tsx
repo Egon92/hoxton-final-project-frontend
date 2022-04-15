@@ -30,37 +30,10 @@ export function ProfilePageEmployer() {
                         <div className="job-description-wrapper">
                             <span id="job-description">Job description</span>
                         </div>
-                        <div className="payment-wrapper">Payment</div>
-                    </div>
-                    <div className="job-wrapper">
-                        <div className="job-title-days-wrapper">
-                            <span id="job-title-wrapper">Job title</span>
-                            <span id="days-left-wrapper">Days left</span>
+                        <div className="payment-wrapper">
+                            Payment
+                            <button onClick={() => updateModal('see-bids')}>See bids</button>
                         </div>
-                        <div className="job-description-wrapper">
-                            <span id="job-description">Job description</span>
-                        </div>
-                        <div className="payment-wrapper">Payment</div>
-                    </div>
-                    <div className="job-wrapper">
-                        <div className="job-title-days-wrapper">
-                            <span id="job-title-wrapper">Job title</span>
-                            <span id="days-left-wrapper">Days left</span>
-                        </div>
-                        <div className="job-description-wrapper">
-                            <span id="job-description">Job description</span>
-                        </div>
-                        <div className="payment-wrapper">Payment</div>
-                    </div>
-                    <div className="job-wrapper">
-                        <div className="job-title-days-wrapper">
-                            <span id="job-title-wrapper">Job title</span>
-                            <span id="days-left-wrapper">Days left</span>
-                        </div>
-                        <div className="job-description-wrapper">
-                            <span id="job-description">Job description</span>
-                        </div>
-                        <div className="payment-wrapper">Payment</div>
                     </div>
                 </div>
             </main>

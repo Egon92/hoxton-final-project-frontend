@@ -1,5 +1,6 @@
 import { useStore } from "../store"
 import PostJobModal from "./PostJobModal"
+import SeeBidsModal from "./SeeBidsModal"
 import SignInModal from "./SignInModal"
 import SignUpEmployeeModal from "./SignUpEmployee"
 import SignUpEmployerModal from "./SignUpEmployer"
@@ -20,5 +21,8 @@ export default function Modals() {
     }
     else if (modal === 'post-job') {
         return <div>{< PostJobModal />}</div>
+    }
+    else if (modal === 'see-bids') {
+        return <div>{< SeeBidsModal />}</div>
     }
 }

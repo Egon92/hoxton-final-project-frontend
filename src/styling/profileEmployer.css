@@ -44,3 +44,14 @@
     transform: scale(1.07);
     transition: .2s;
 }
+
+.payment-wrapper {
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: center;
+    gap: 1rem;
+}
+
+.payment-wrapper button {
+    width: fit-content;
+}
