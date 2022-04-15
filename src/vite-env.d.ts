@@ -11,3 +11,13 @@ type User = {
     bio: string
     isEmployer: boolean
 }
+
+type Project = {
+    price: number,
+    deadline: Date,
+    tile: string,
+    overview: string,
+    status: boolean,
+    employer_id: number,
+    category_id: number
+}
