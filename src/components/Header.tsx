@@ -4,7 +4,7 @@ import { useStore } from "../components/store"
 import Modals from "./modals/Modals";
 import { Link } from "react-router-dom";
 
-export function Header() {
+export function Header({ setSearch }: any) {
     const navigate = useNavigate();
     const { updateModal } = useStore()
 
@@ -20,7 +20,9 @@ export function Header() {
                 </div>
                 <div className="center-nav">
                     <form className="search-form-wrapper" action="">
-                        <input className="search-bar" type="text" placeholder="Search..." />
+                        <input onChange={e => {
+                            setSearch(e.target.value)
+                        }} className="search-bar" type="text" placeholder="Search..." />
                         <button className="search_svg"><img src={`/assets/search.svg`} alt="" /></button>
                     </form>
                 </div>
