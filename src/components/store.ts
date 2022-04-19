@@ -7,7 +7,9 @@ type appState = {
     signUp: (username: string, full_name: string, email: string, password: string, avatar: string, phone: number, address: string, bio: string, isEmployer: boolean) => void,
     signIn: (username: string, password: string) => void,
     signOut: () => void,
-    validate: () => void
+    validate: () => void,
+    selectedProject : number,
+    setSelectedProject : (id: number) => void,
 }
 
 export const useStore = create<appState>((set) => ({
@@ -70,5 +72,9 @@ export const useStore = create<appState>((set) => ({
                     }
                 });
         }
+    },
+    selectedProject: 0,
+    setSelectedProject: (id: number) => {
+        set({ selectedProject: id })
     }
 }))

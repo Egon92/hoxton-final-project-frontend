@@ -10,6 +10,8 @@ type User = {
     address: string
     bio: string
     isEmployer: boolean
+    postedProjects: Project[]
+    acceptedProjects: Project[]
 }
 
 type Project = {
@@ -20,5 +22,14 @@ type Project = {
     description: string,
     status: boolean,
     employer_id: number,
-    category_id: number
+    category_id: number,
+    employee: User| null,
+}
+
+type Bid = {
+    id: number
+    bids: number
+    employee_id: number
+    project_id: number
+    employee: User
 }
