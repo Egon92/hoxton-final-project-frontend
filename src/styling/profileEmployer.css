@@ -55,3 +55,6 @@
 .payment-wrapper button {
     width: fit-content;
 }
+.employer-jobs-info .job-wrapper {
+    padding: 1rem;
+}
