@@ -26,6 +26,7 @@ export function HomeAsEmployer() {
         <div className="right-home-wrapper">
           {employees.map(employee => {
             return (
+              // <div className="card_wrapper">
               <div className="job-wrapper">
                 <div className="job-title-days-wrapper">
                   <img
@@ -40,9 +41,10 @@ export function HomeAsEmployer() {
                 </div>
                 <div className="job-description-wrapper">
                   <span id="job-description">{employee.bio}</span>
+                  <span className="phone-wrapper">{employee.phone}</span>
                 </div>
-                <span className="payment-wrapper">{employee.phone}</span>
               </div>
+              // </div>
             )
           })}
 

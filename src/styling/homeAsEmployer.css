@@ -34,15 +34,18 @@
 
 }
 
+.card_wrapper {
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
 .job-wrapper {
-  position: relative;
   display: grid;
   grid-template-columns: auto 1fr;
   padding: 0.3rem;
   background-color: (0, 0, 0, 0.04);
   border: 0.1px solid rgb(168, 175, 182);
   width: 70vw;
-  /* z-index: -1; */
 
 }
 
@@ -58,12 +61,15 @@
   grid-template-rows: 1fr auto;
   place-content: start;
   gap: 1rem;
+
 }
 
 #profile-pic {
   display: grid;
   width: 100px;
   border-radius: 50px;
+  border: 0.1px solid rgb(168, 175, 182);
+
 }
 
 .row_section {
@@ -77,15 +83,12 @@
   place-content: start;
   margin: 0.5rem;
   padding: 0.5rem;
+
 }
 
-.payment-wrapper {
+.phone-wrapper {
   display: grid;
-  grid-row: 1fr;
-  position: absolute;
-  justify-content: center;
-  bottom: 0;
-  right: 0;
-  text-align: center;
+  justify-items: right;
   padding: 0.2rem;
+
 }
