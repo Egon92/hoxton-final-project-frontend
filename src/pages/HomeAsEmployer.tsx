@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 
 export function HomeAsEmployer() {
-  const [employees, setEmployees] = useState([])
+  const [employees, setEmployees] = useState<User[]>([])
 
   useEffect(() => {
     fetch(`http://localhost:4000/employees`)
@@ -33,12 +33,15 @@ export function HomeAsEmployer() {
                     src={employee.avatar}
                     alt="profile-pic"
                   />
-                  <span id="days-left-wrapper">{employee.full_name}</span>
+                  <div className="row_section">
+                    <span id="days-left-wrapper">{employee.full_name}
+                    </span>
+                  </div>
                 </div>
                 <div className="job-description-wrapper">
                   <span id="job-description">{employee.bio}</span>
                 </div>
-                <div className="payment-wrapper">{employee.phone}</div>
+                <span className="payment-wrapper">{employee.phone}</span>
               </div>
             )
           })}
