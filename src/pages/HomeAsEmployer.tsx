@@ -1,10 +1,17 @@
 import { HeaderAsEmployer } from "../components/HeaderAsEmployer";
 import "../styling/homeAsEmployer.css";
+import { useEffect, useState } from "react";
 
 
 
 export function HomeAsEmployer() {
+  const [employees, setEmployees] = useState([])
 
+  useEffect(() => {
+    fetch(`http://localhost:4000/employees`)
+      .then(resp => resp.json())
+      .then(data => setEmployees(data))
+  }, [])
 
   return (
 
@@ -17,7 +24,26 @@ export function HomeAsEmployer() {
           </div>
         </div>
         <div className="right-home-wrapper">
-          <div className="job-wrapper">
+          {employees.map(employee => {
+            return (
+              <div className="job-wrapper">
+                <div className="job-title-days-wrapper">
+                  <img
+                    id="profile-pic"
+                    src={employee.avatar}
+                    alt="profile-pic"
+                  />
+                  <span id="days-left-wrapper">{employee.full_name}</span>
+                </div>
+                <div className="job-description-wrapper">
+                  <span id="job-description">{employee.bio}</span>
+                </div>
+                <div className="payment-wrapper">{employee.phone}</div>
+              </div>
+            )
+          })}
+
+          {/* <div className="job-wrapper">
             <div className="job-title-days-wrapper">
               <img
                 id="profile-pic"
@@ -30,91 +56,7 @@ export function HomeAsEmployer() {
               <span id="job-description">Bio</span>
             </div>
             <div className="payment-wrapper">Hourly rate</div>
-          </div>
-          <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <img
-                id="profile-pic"
-                src="/public/assets/account_circle_black_24dp.svg"
-                alt="profile-pic"
-              />
-              <span id="days-left-wrapper">Worker name</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Bio</span>
-            </div>
-            <div className="payment-wrapper">Hourly rate</div>
-          </div>
-          <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <img
-                id="profile-pic"
-                src="/public/assets/account_circle_black_24dp.svg"
-                alt="profile-pic"
-              />
-              <span id="days-left-wrapper">Worker name</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Bio</span>
-            </div>
-            <div className="payment-wrapper">Hourly rate</div>
-          </div>
-          <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <img
-                id="profile-pic"
-                src="/public/assets/account_circle_black_24dp.svg"
-                alt="profile-pic"
-              />
-              <span id="days-left-wrapper">Worker name</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Bio</span>
-            </div>
-            <div className="payment-wrapper">Hourly rate</div>
-          </div>
-          <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <img
-                id="profile-pic"
-                src="/public/assets/account_circle_black_24dp.svg"
-                alt="profile-pic"
-              />
-              <span id="days-left-wrapper">Worker name</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Bio</span>
-            </div>
-            <div className="payment-wrapper">Hourly rate</div>
-          </div>
-          <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <img
-                id="profile-pic"
-                src="/public/assets/account_circle_black_24dp.svg"
-                alt="profile-pic"
-              />
-              <span id="days-left-wrapper">Worker name</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Bio</span>
-            </div>
-            <div className="payment-wrapper">Hourly rate</div>
-          </div>
-          <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <img
-                id="profile-pic"
-                src="/public/assets/account_circle_black_24dp.svg"
-                alt="profile-pic"
-              />
-              <span id="days-left-wrapper">Worker name</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Bio</span>
-            </div>
-            <div className="payment-wrapper">Hourly rate</div>
-          </div>
+          </div> */}
         </div>
       </main>
     </section>

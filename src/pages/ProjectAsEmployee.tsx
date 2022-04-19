@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { HeaderAsEmployee } from "../components/HeaderAsEmployee";
+import Modals from "../components/modals/Modals";
+import { useStore } from "../components/store";
 import "../styling/project.css";
 
 export default function ProjectAsEmployee() {
@@ -8,6 +10,8 @@ export default function ProjectAsEmployee() {
     const [projects, setProjects] = useState<Project[]>([])
     const [projectDetails, setProjectDetails] = useState<Project|null>(null)
     const [search, setSearch] = useState('')
+    const updateModal = useStore(state => state.updateModal);
+
 
     const params = useParams()
     useEffect(() => {
@@ -49,7 +53,7 @@ export default function ProjectAsEmployee() {
                         {/* @ts-ignore */}
                         <h3>hourly rate {projectDetails.price}$ </h3>
                         <button>Chat</button>
-                        <button>apply</button>
+                        <button onClick={() => updateModal('post-bids')}>apply</button>
 
                     </div>
                 </div>
@@ -73,6 +77,7 @@ export default function ProjectAsEmployee() {
                     )}
                 </div>
             </main>
+            < Modals />
         </section>
     )
 }
