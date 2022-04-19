@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../components/Header";
 import Modals from "../components/modals/Modals";
 import { useStore } from "../components/store";
@@ -7,6 +7,15 @@ import "../styling/home.css";
 
 export function Home() {
   const user = useStore(store => store.user)
+  const [projects, setProjects] = useState<Project[]>([])
+  const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/projects`)
+      .then(resp => resp.json())
+      .then(data => setProjects(data))
+  }, [])
+
   const navigate = useNavigate()
   useEffect(() => {
     if (user) {
@@ -18,6 +27,8 @@ export function Home() {
     }
   }
     , [user])
+
+
   return (
     <section className="home-wrapper">
       <Header />
@@ -28,76 +39,24 @@ export function Home() {
           </div>
         </div>
         <div className="right-home-wrapper">
-          <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <span id="job-title-wrapper">Job title</span>
-              <span id="days-left-wrapper">Days left</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Job description</span>
-            </div>
-            <div className="payment-wrapper">Payment</div>
+
+          <div className="right-home-wrapper">
+            {projects.map(project =>
+              <Link to={`/home/${project.id}`} key={project.id}>
+                <div className="job-wrapper">
+                  <div className="job-title-days-wrapper">
+                    <span id="job-title-wrapper">{project.title}</span>
+                    <span id="days-left-wrapper"> {project.deadline}</span>
+                  </div>
+                  <div className="job-description-wrapper">
+                    <span id="job-description">{project.description}</span>
+                  </div>
+                  <div className="payment-wrapper">{project.price}$</div>
+                </div>
+              </Link>
+            )}
           </div>
-          <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <span id="job-title-wrapper">Job title</span>
-              <span id="days-left-wrapper">Days left</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Job description</span>
-            </div>
-            <div className="payment-wrapper">Payment</div>
-          </div>
-          <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <span id="job-title-wrapper">Job title</span>
-              <span id="days-left-wrapper">Days left</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Job description</span>
-            </div>
-            <div className="payment-wrapper">Payment</div>
-          </div>
-          <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <span id="job-title-wrapper">Job title</span>
-              <span id="days-left-wrapper">Days left</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Job description</span>
-            </div>
-            <div className="payment-wrapper">Payment</div>
-          </div>
-          <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <span id="job-title-wrapper">Job title</span>
-              <span id="days-left-wrapper">Days left</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Job description</span>
-            </div>
-            <div className="payment-wrapper">Payment</div>
-          </div>
-          <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <span id="job-title-wrapper">Job title</span>
-              <span id="days-left-wrapper">Days left</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Job description</span>
-            </div>
-            <div className="payment-wrapper">Payment</div>
-          </div>
-          <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <span id="job-title-wrapper">Job title</span>
-              <span id="days-left-wrapper">Days left</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Job description</span>
-            </div>
-            <div className="payment-wrapper">Payment</div>
-          </div>
+
         </div>
       </main>
     </section>
