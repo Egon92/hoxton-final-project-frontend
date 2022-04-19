@@ -14,7 +14,7 @@ export function HeaderAsEmployee() {
         <div className="left-nav">
           <div className="logo-wrapper">
             <Link to={'/employee'}>
-              <img id="logo-pic" src={`public/assets/logoworkin.png`} alt="" />
+              <img id="logo-pic" src={`/assets/logoworkin.png`} alt="" />
             </Link>
           </div>
         </div>
@@ -22,7 +22,7 @@ export function HeaderAsEmployee() {
           <form className="search-form-wrapper" action="">
             <input className="search-bar" type="text" placeholder="Search..." />
             <button className="search_svg">
-              <img src={`public/assets/search.svg`} alt="" />
+              <img src={`/assets/search.svg`} alt="" />
             </button>
           </form>
         </div>
@@ -40,7 +40,7 @@ export function HeaderAsEmployee() {
             </Link>
             <img
               id="user-pic"
-              src="/public/assets/account_circle_black_24dp.svg"
+              src="/assets/account_circle_black_24dp.svg"
               alt="user-pic"
             />
           </div>

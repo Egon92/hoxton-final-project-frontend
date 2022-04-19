@@ -13,9 +13,10 @@ type User = {
 }
 
 type Project = {
+    id: number
     price: number,
     deadline: Date,
-    tile: string,
+    title: string,
     overview: string,
     status: boolean,
     employer_id: number,

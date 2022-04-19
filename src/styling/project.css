@@ -1,106 +1,103 @@
 .project-wrapper {
-    height: 100%;
-    display: grid;
-    gap: 1rem;
-    justify-content: center;
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
 
-  }
-
-  .wrapper{
-    display: grid;
-    grid-template-rows:  repeat(3 ,1fr);
-    border: 1px solid rgb(168, 175, 182);
-    width: 80%;
-    gap: 0.8rem;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-  }
-
-  .project-title-days-wrapper {
-    display: grid;
-    grid-auto-flow: column;
-    align-content: center;
-  } 
-
-  .project-description-wrapper{
-    display: grid;
-    margin: 0.5rem;
-  }
-
-.job_description{
-    display: grid;
-    grid-template-columns:1fr auto auto;
-    gap: 0.5rem;
-    align-content: center;
 }
 
-.previous_jobs{
-    display: grid;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    margin-right:61.5rem;
-    
+.wrapper {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  border: 1px solid rgb(168, 175, 182);
+  width: 80%;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
 }
 
-  .project-main-wrapper {
-    display: grid;
-    grid-template-columns:  1fr;
-    justify-content: center;
-    margin-top: 9rem;
-    justify-items: center;
+.project-title-days-wrapper {
+  display: grid;
+  grid-auto-flow: column;
+  align-content: center;
+}
 
-  }
+.project-description-wrapper {
+  display: grid;
+  margin: 0.5rem;
+}
 
-  .filter-by-wrapper {
-    display: grid;
-    align-content: start;
-    justify-content: center;
-  }
-  .right-project-wrapper {
-    display: grid;
-    grid-auto-flow: row;
-    width: 0.75fr;
-    place-content: center;
-    align-content: start;
-    min-width: max-content;
-    gap: 2rem;
-    overflow: hidden;
-    /* border: 1px solid black; */
-  }
-  .job-wrapper {
-    padding: 0.3rem;
-    background-color:(0, 0, 0, 0.04);
-    border: 0.1px solid rgb(168, 175, 182);
-    display: grid;
-    width: 100%;
-    grid-template:
-      "job-title-days-wrapper      payment-wrapper" 30px
-      "job-description-wrapper   payment-wrapper" 100px/
-      70rem 100px;
-  }
-  
-  .job-wrapper:hover {
-    transform: scale(1.07);
-    background-color: #dee2e6b2;
-    transition:  1s
-  }
-  
-  .job-title-days-wrapper {
-    grid-area: job-title-days-wrapper;
-    display: grid;
-    grid-auto-flow: column;
-    align-content: center;
-  }
-  .job-description-wrapper {
-    grid-area: job-description-wrapper;
-    display: grid;
-    place-content: start;
-    margin: 0.5rem;
-  }
-  .payment-wrapper {
-    grid-area: payment-wrapper;
-    display: grid;
-    align-content: start;
-    justify-content: center;
-  }
-  
+.job_description {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.5rem;
+  align-content: center;
+}
+
+.previous_jobs {
+  display: grid;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-right: 61.5rem;
+
+}
+
+.project-main-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  margin-top: 1.5rem;
+  justify-items: center;
+
+}
+
+.filter-by-wrapper {
+  display: grid;
+  align-content: start;
+  justify-content: center;
+}
+
+.right-project-wrapper {
+  display: grid;
+  grid-auto-flow: row;
+  width: 0.75fr;
+  place-content: center;
+  align-content: start;
+  min-width: max-content;
+  gap: 2rem;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  padding: 0.5rem;
+}
+
+.job-wrapper {
+  padding: 0.3rem;
+  background-color: (0, 0, 0, 0.04);
+  border: 0.1px solid rgb(168, 175, 182);
+  display: grid;
+  /* width: 100%; */
+}
+
+.job-wrapper:hover {
+  transform: scale(1.07);
+  background-color: #dee2e6b2;
+  transition: 1s
+}
+
+.job-title-days-wrapper {
+  display: grid;
+  grid-auto-flow: column;
+  align-content: center;
+}
+
+.job-description-wrapper {
+  display: grid;
+  place-content: start;
+  margin: 0.5rem;
+}
+
+.payment-wrapper {
+  display: grid;
+  align-content: start;
+  justify-content: center;
+}
