@@ -6,7 +6,7 @@ import "../styling/project.css";
 export default function ProjectAsEmployee() {
 
     const [projects, setProjects] = useState<Project[]>([])
-    const [projectDetails, setProjectDetails] = useState<Project|null>([])
+    const [projectDetails, setProjectDetails] = useState<Project|null>(null)
     const [search, setSearch] = useState('')
 
     const params = useParams()
