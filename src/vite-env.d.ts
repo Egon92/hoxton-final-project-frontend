@@ -17,7 +17,7 @@ type Project = {
     price: number,
     deadline: Date,
     title: string,
-    overview: string,
+    description: string,
     status: boolean,
     employer_id: number,
     category_id: number

@@ -33,7 +33,7 @@ export function HomeAsEmployee() {
                   <span id="days-left-wrapper"> {project.deadline}</span>
                 </div>
                 <div className="job-description-wrapper">
-                  <span id="job-description">{project.overview}</span>
+                  <span id="job-description">{project.description}</span>
                 </div>
                 <div className="payment-wrapper">{project.price}$</div>
               </div>
