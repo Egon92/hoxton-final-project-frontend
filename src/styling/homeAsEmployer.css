@@ -41,9 +41,10 @@
   border: 0.1px solid rgb(168, 175, 182);
   display: grid;
   width: 100%;
+  /* height: fit-content; */
   grid-template:
     "job-title-days-wrapper      payment-wrapper" 30px
-    "job-description-wrapper   payment-wrapper" 100px/
+    "job-description-wrapper   payment-wrapper" auto/
     50rem 100px;
 }
 

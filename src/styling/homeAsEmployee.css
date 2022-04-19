@@ -36,6 +36,7 @@
   padding: 0.3rem;
   background-color: (0, 0, 0, 0.04);
   border: 0.1px solid rgb(168, 175, 182);
+  height: auto;
   display: grid;
   width: 100vw;
 }
