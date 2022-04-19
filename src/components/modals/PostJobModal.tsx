@@ -35,7 +35,8 @@ export default function SignInModal() {
                 if (data.error) {
                     console.log(data.error)
                 } else {
-                    updateModal("")         }
+                    updateModal("")         
+                }
             })
 
     }
