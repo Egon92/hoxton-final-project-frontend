@@ -40,7 +40,7 @@ export default function ProjectAsEmployee() {
 
                     <div className="project-description-wrapper">
                         {/* @ts-ignore */}
-                        <span id="project-description"> {projectDetails.overview}</span>
+                        <span id="project-description"> {projectDetails.description} </span>
                     </div>
 
                     <div className="job_description">
@@ -62,7 +62,7 @@ export default function ProjectAsEmployee() {
                                         <span id="days-left-wrapper"> {project.deadline}</span>
                                     </div>
                                     <div className="job-description-wrapper">
-                                        <span id="job-description">{project.overview}</span>
+                                        <span id="job-description">{project.description}</span>
                                     </div>
                                     <div className="payment-wrapper">{project.price}$</div>
                                 </div>
