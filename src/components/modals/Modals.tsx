@@ -1,4 +1,5 @@
 import { useStore } from "../store"
+import BidAmountModal from "./BidAmountModal"
 import PostJobModal from "./PostJobModal"
 import SeeBidsModal from "./SeeBidsModal"
 import SignInModal from "./SignInModal"
@@ -24,5 +25,8 @@ export default function Modals() {
     }
     else if (modal === 'see-bids') {
         return <div>{< SeeBidsModal />}</div>
+    }
+    else if (modal === 'post-bids') {
+        return <div>{< BidAmountModal />}</div>
     }
 }
