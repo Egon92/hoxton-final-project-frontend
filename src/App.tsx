@@ -9,6 +9,7 @@ import Project from "./pages/Project";
 import ProjectAsEmployee from "./pages/ProjectAsEmployee";
 import { useStore } from "./components/store";
 import { useEffect, useState } from "react";
+import Modals from './components/modals/Modals';
 
 
 
@@ -57,6 +58,8 @@ function App() {
         <Route path="/profileEmployer" element={<ProfilePageEmployer />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
+      {/* @ts-ignore */}
+      <Modals/>
     </div>
   );
 }

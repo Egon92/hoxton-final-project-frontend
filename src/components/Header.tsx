@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../styling/header.css";
 import { useStore } from "../components/store"
-import Modals from "./modals/Modals";
 import { Link } from "react-router-dom";
 
 export function Header({ setSearch }: any) {
@@ -35,10 +34,7 @@ export function Header({ setSearch }: any) {
                         <span onClick={() => { updateModal('sign-up-as-employee') }} id="want-to-work">| want to work</span>
                     </div>
                 </div>
-            </nav>
-            {/* <div className="top-jobs-bar">Top jobs</div> */}
-            {/* @ts-ignore */}
-            <Modals />
+            </nav>            
         </section>
     );
 }
