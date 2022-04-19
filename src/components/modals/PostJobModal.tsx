@@ -4,17 +4,16 @@ import "./Modal Styling/postJob.css";
 
 export default function SignInModal() {
 
-    const { updateModal } = useStore()
+    const  updateModal  = useStore(state => state.updateModal);
     const [project, setProject] = useState<Project[]>([])
 
     async function postProject(e: any) {
         e.preventDefault()
-        const price = e.target.payment.value
+        const price = Number(e.target.price.value)
         const deadline = e.target.deadline.value
-        const tile = e.target.name.value
-        const overview = e.target.info.value
-        //    const status = e.target.payment.value
-        //    const employer_id = user.id
+        const title = e.target.title.value
+        const description = e.target.description.value
+        const category_id = Number(e.target.category.value) 
 
         await fetch('http://localhost:4000/projects', {
             method: 'POST',
@@ -24,21 +23,19 @@ export default function SignInModal() {
             },
             body: JSON.stringify({
                 price: price,
-                deadline: Date(),
-                tile: tile,
-                overview: overview,
-                status: true,
-                employer_id: 2,
-                category_id: 1
+                deadline: deadline,
+                title: title,
+                description: description,
+                status: 0,
+                category_id: category_id
             })
         })
             .then(res => res.json())
             .then(data => {
                 if (data.error) {
-                    alert(data.error)
+                    console.log(data.error)
                 } else {
-                    setProject(data)
-                }
+                    updateModal("")         }
             })
 
     }
@@ -51,34 +48,34 @@ export default function SignInModal() {
                 </button>
                 <div className='modal-container'>
                     <h1>Post a job</h1>
-                    <form>
+                    <form onSubmit={(e:any)=>{postProject(e )}}>
                         <div>
-                            <label htmlFor="name">Enter name for your project</label>
-                            <input type="text" name="name" placeholder="Type Here..." />
+                            <label htmlFor="title">Enter the title for your project</label>
+                            <input type="text" name="title" placeholder="Type Here..."  required/>
                         </div>
                         <div>
-                            <label htmlFor="info">Tell us more about your project</label>
-                            <input type="area" name="info" placeholder="Type Here..." />
+                            <label htmlFor="description">Tell us more about your project</label>
+                            <input type="area" name="description" placeholder="Type Here..."  required/>
                         </div>
-                        {/* <div className="skills">
-                            <p>What skills are required?</p>
-                            <ul>
-                                <li>
-                                    <input className="input" type="checkbox" name="skill2" />
-                                    <label htmlFor="skill2">
-                                        <span>Skill 2</span>
-                                    </label>
-                                </li>
-                            </ul>
-
-                        </div> */}
                         <div>
-                            <label htmlFor="payment">What is the payment?</label>
-                            <input type="number" name="payment" placeholder="Type Here..." />
+                            <label htmlFor="cateegory">Select a category for your project:</label>
+                            <select name='category' required>
+                                <option selected disabled  value="">Select a category</option>
+                                <option  value={1}>Graphics Design</option>
+                                <option  value={2}>Digital Marketing</option>
+                                <option  value={3}>Writing & Translation</option>
+                                <option  value={4}>Video & Animation</option>
+                                <option  value={5}>Music & Audio</option>
+                                <option  value={6}>Programming & Tech</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label htmlFor="price">What is the payment?</label>
+                            <input type="number" min={1 } name="price" placeholder="Type Here..."  required/>
                         </div>
                         <div>
                             <label htmlFor="deadline">When is the deadline?</label>
-                            <input type="date" name="deadline" placeholder="Type Here..." />
+                            <input type="date" name="deadline" placeholder="Type Here..." min={"2022-04-23"} required/>
                         </div>
                         <button type="submit">
                             Submit
