@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: repeat(3 1fr);
   grid-auto-flow: row;
-  width: 1fr;
   border-bottom: 0.1px solid rgb(168, 175, 182);
   background-color: #dee2e6b2;
   backdrop-filter: blur(1px);
