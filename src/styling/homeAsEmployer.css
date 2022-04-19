@@ -2,12 +2,14 @@
   height: 100%;
   width: 100%;
   display: grid;
+
 }
 
 .home-main-wrapper {
   display: grid;
   grid-template-columns: 15rem 1fr;
   margin-top: 9rem;
+
 }
 
 .left-home-wrapper {
@@ -40,6 +42,8 @@
   background-color: (0, 0, 0, 0.04);
   border: 0.1px solid rgb(168, 175, 182);
   width: 70vw;
+  z-index: -1;
+
 }
 
 .job-wrapper:hover {
