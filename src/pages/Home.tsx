@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
+import { Key, ReactChild, ReactFragment, ReactPortal, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../components/Header";
 import Modals from "../components/modals/Modals";
 import { useStore } from "../components/store";
 import "../styling/home.css";
 
-export function Home() {
+export function Home({ search, setSearch, searcheditems }: any) {
   const user = useStore(store => store.user)
   const [projects, setProjects] = useState<Project[]>([])
-  const [search, setSearch] = useState('')
 
   useEffect(() => {
     fetch(`http://localhost:4000/projects`)
@@ -28,10 +27,9 @@ export function Home() {
   }
     , [user])
 
-
   return (
     <section className="home-wrapper">
-      <Header />
+      <Header setSearch={setSearch} />
       <main className="home-main-wrapper">
         <div className="left-home-wrapper">
           <div className="filter-by-wrapper">
@@ -41,7 +39,7 @@ export function Home() {
         <div className="right-home-wrapper">
 
           <div className="right-home-wrapper">
-            {projects.map(project =>
+            {searcheditems.map((project: Project) =>
               <Link to={`/home/${project.id}`} key={project.id}>
                 <div className="job-wrapper">
                   <div className="job-title-days-wrapper">

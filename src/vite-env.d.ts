@@ -16,14 +16,14 @@ type User = {
 
 type Project = {
     id: number
-    price: number,
-    deadline: Date,
-    title: string,
-    description: string,
-    status: boolean,
-    employer_id: number,
-    category_id: number,
-    employee: User| null,
+    price: number
+    deadline: Date
+    title: string
+    description: string
+    status: boolean
+    employer_id: number
+    category_id: number
+    employee: User | null
 }
 
 type Bid = {

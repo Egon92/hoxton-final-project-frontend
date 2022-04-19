@@ -2,21 +2,13 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HeaderAsEmployee } from "../components/HeaderAsEmployee";
 import "../styling/homeAsEmployee.css";
-export function HomeAsEmployee() {
+export function HomeAsEmployee({ search, setSearch, searcheditems }: any) {
   const [projects, setProjects] = useState<Project[]>([])
-  const [search, setSearch] = useState('')
-
-  useEffect(() => {
-    fetch(`http://localhost:4000/projects`)
-      .then(resp => resp.json())
-      .then(data => setProjects(data))
-  }, [])
-
 
   return (
 
     <section className="home-wrapper">
-      <HeaderAsEmployee />
+      <HeaderAsEmployee setSearch={setSearch} />
       <main className="home-main-wrapper">
         <div className="left-home-wrapper">
           <div className="filter-by-wrapper">
@@ -25,7 +17,7 @@ export function HomeAsEmployee() {
         </div>
 
         <div className="right-home-wrapper">
-          {projects.map(project =>
+          {searcheditems.map((project: Project) =>
             <Link to={`/employee/${project.id}`} key={project.id}>
               <div className="job-wrapper">
                 <div className="job-title-days-wrapper">
