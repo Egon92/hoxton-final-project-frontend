@@ -1,10 +1,11 @@
 import { HeaderAsEmployer } from "../components/HeaderAsEmployer";
 import "../styling/homeAsEmployer.css";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
-export function HomeAsEmployer() {
+export function HomeAsEmployer({ search, setSearch, searchedEmployees }: any) {
   const [employees, setEmployees] = useState<User[]>([])
 
   useEffect(() => {
@@ -16,7 +17,7 @@ export function HomeAsEmployer() {
   return (
 
     <section className="home-wrapper">
-      <HeaderAsEmployer />
+      <HeaderAsEmployer setSearch={setSearch}/>
       <main className="home-main-wrapper">
         <div className="left-home-wrapper">
           <div className="filter-by-wrapper">
@@ -24,7 +25,8 @@ export function HomeAsEmployer() {
           </div>
         </div>
         <div className="right-home-wrapper">
-          {employees.map(employee => {
+          {searchedEmployees.map((employee:any) => 
+            <Link to={`/employer/${employee.id}`} key={employee.id}>
             return (
               <div className="job-wrapper">
                 <div className="job-title-days-wrapper">
@@ -43,6 +45,9 @@ export function HomeAsEmployer() {
                   <span className="phone-wrapper">{employee.phone}</span>
                 </div>
               </div>
+            </Link>
+          )}
+
             )
           })}
         </div>
