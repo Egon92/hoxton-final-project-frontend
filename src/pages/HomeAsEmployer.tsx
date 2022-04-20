@@ -17,7 +17,7 @@ export function HomeAsEmployer({ search, setSearch, searchedEmployees }: any) {
   return (
 
     <section className="home-wrapper">
-      <HeaderAsEmployer setSearch={setSearch}/>
+      <HeaderAsEmployer setSearch={setSearch} />
       <main className="home-main-wrapper">
         <div className="left-home-wrapper">
           <div className="filter-by-wrapper">
@@ -25,9 +25,9 @@ export function HomeAsEmployer({ search, setSearch, searchedEmployees }: any) {
           </div>
         </div>
         <div className="right-home-wrapper">
-          {searchedEmployees.map((employee:any) => 
+          {searchedEmployees.map((employee: any) =>
             <Link to={`/employer/${employee.id}`} key={employee.id}>
-            return (
+              {/* return ( */}
               <div className="job-wrapper">
                 <div className="job-title-days-wrapper">
                   <img
@@ -48,8 +48,7 @@ export function HomeAsEmployer({ search, setSearch, searchedEmployees }: any) {
             </Link>
           )}
 
-            )
-          })}
+          {/* ) })} */}
         </div>
       </main>
     </section>
