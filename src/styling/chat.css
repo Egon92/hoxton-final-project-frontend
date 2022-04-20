@@ -1,7 +1,3 @@
-body {
-    background-color: #f4f7f6;
-}
-
 .main_chat_wraper {
     display: grid;
     grid-template-rows: 100px 1fr;
