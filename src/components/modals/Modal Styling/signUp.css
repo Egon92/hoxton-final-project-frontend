@@ -5,11 +5,11 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 15;
+    z-index: 30;
     display: grid;
     place-content: center;
 }
-  
+
 .modal {
     background-color: white;
     color: black;
@@ -37,7 +37,7 @@
     background-color: #757575;
     transform: scale(1.07);
 }
-  
+
 .modal-container {
     border-radius: 2%;
     width: 330px;
@@ -54,7 +54,7 @@
     grid-gap: 1rem;
 }
 
-.modal-container form input{
+.modal-container form input {
     border: none;
     border-bottom: solid rgb(202, 200, 200) 1px;
     padding: 15px 0px;
@@ -64,14 +64,15 @@
 .modal-container form input:focus {
     outline: none;
 }
+
 .modal-container form button {
-  background: -webkit-linear-gradient(#474747, #757575);
-  color: white;
-  border: none;
-  border-radius: 25px;
-  padding: 10px;
-  width: 270px;
-  cursor: pointer; 
+    background: -webkit-linear-gradient(#474747, #757575);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    width: 270px;
+    cursor: pointer;
 }
 
 .modal-container form button:hover {

@@ -28,28 +28,28 @@ export function Home({ search, setSearch, searcheditems }: any) {
     , [user])
 
   return (
-    <section className="home-wrapper">
+    <section className="main-home-wrapper">
       <Header setSearch={setSearch} />
-      <main className="home-main-wrapper">
-        <div className="left-home-wrapper">
-          <div className="filter-by-wrapper">
+      <main className="home-main__wrapper">
+        <div className="left__home-wrapper">
+          <div className="filter__by-wrapper">
             <span>Filter by:</span>
           </div>
         </div>
-        <div className="right-home-wrapper">
+        <div className="right__home-wrapper">
 
           <div className="right-home-wrapper">
             {searcheditems.map((project: Project) =>
               <Link to={`/home/${project.id}`} key={project.id}>
-                <div className="job-wrapper">
-                  <div className="job-title-days-wrapper">
+                <div className="job-wrapper__">
+                  <div className="job__title-days-wrapper">
                     <span id="job-title-wrapper">{project.title}</span>
                     <span id="days-left-wrapper"> {project.deadline}</span>
                   </div>
-                  <div className="job-description-wrapper">
+                  <div className="job__description-wrapper">
                     <span id="job-description">{project.description}</span>
                   </div>
-                  <div className="payment-wrapper">{project.price}$</div>
+                  <div className="phone__wrapper">{project.price}$</div>
                 </div>
               </Link>
             )}

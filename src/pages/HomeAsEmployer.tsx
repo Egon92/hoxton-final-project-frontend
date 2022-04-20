@@ -27,6 +27,7 @@ export function HomeAsEmployer({ search, setSearch, searchedEmployees }: any) {
         <div className="right-home-wrapper">
           {searchedEmployees.map((employee:any) => 
             <Link to={`/employer/${employee.id}`} key={employee.id}>
+            return (
               <div className="job-wrapper">
                 <div className="job-title-days-wrapper">
                   <img
@@ -46,6 +47,9 @@ export function HomeAsEmployer({ search, setSearch, searchedEmployees }: any) {
               </div>
             </Link>
           )}
+
+            )
+          })}
         </div>
       </main>
     </section>

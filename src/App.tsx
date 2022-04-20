@@ -11,7 +11,7 @@ import { useStore } from "./components/store";
 import { useEffect, useState } from "react";
 import Modals from './components/modals/Modals';
 import { EmployeeProfile } from "./pages/EmployeeProfile";
-
+import Chat from "./pages/Chat";
 
 
 
@@ -67,6 +67,7 @@ function App() {
         <Route path="/employer/:id" element={<EmployeeProfile />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/profileEmployer" element={<ProfilePageEmployer />} />
+        <Route path="/chat" element={<Chat />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
       {/* @ts-ignore */}
