@@ -3,7 +3,7 @@
   grid-template-rows: 10rem 1fr;
   align-content: start;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 5rem;
   gap: 2rem;
 }
 
@@ -19,6 +19,7 @@
   grid-template-columns: 150px 50rem;
   gap: 1rem;
   border: 0.1px solid rgb(168, 175, 182);
+  height: fit-content;
 }
 
 .top-profile-pic-wrapper {
@@ -37,12 +38,16 @@
 
 .top-job-description-wrapper {
   display: grid;
-  grid-template-rows: 20px 70px 10px;
+  grid-template-rows: 20px auto 10px;
   align-content: center;
   justify-content: start;
+  gap: 0.5rem;
+  padding: 0.5rem;
 }
 
-
+.top-job-description-wrapper button {
+  width: fit-content;
+}
 
 .bottom_main_home_wrapper {
   display: grid;
@@ -84,4 +89,9 @@
 .bottom_payment_wrapper {
   display: grid;
   justify-content: end;
+}
+
+.bid_button {
+  width: fit-content;
+  justify-self: end;
 }

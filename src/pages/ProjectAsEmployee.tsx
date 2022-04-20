@@ -8,14 +8,14 @@ import "../styling/project.css";
 export default function ProjectAsEmployee() {
 
     const [projects, setProjects] = useState<Project[]>([])
-    const [projectDetails, setProjectDetails] = useState<Project|null>(null)
+    const [projectDetails, setProjectDetails] = useState<Project | null>(null)
     const [search, setSearch] = useState('')
     const updateModal = useStore(state => state.updateModal);
     const setSelectedProejct = useStore(state => state.setSelectedProject);
 
     const params = useParams()
-    useEffect(() => {setSelectedProejct(Number(params.id))}
-    ,[params.id])
+    useEffect(() => { setSelectedProejct(Number(params.id)) }
+        , [params.id])
     useEffect(() => {
         fetch(`http://localhost:4000/projects/${params.id}`)
             .then(resp => resp.json())
@@ -31,7 +31,7 @@ export default function ProjectAsEmployee() {
 
 
 
-    
+
 
 
     if (projectDetails === null) return <h1>Loading...</h1>
@@ -79,6 +79,7 @@ export default function ProjectAsEmployee() {
                     )}
                 </div>
             </main>
+            {/* @ts-ignore */}
             < Modals />
         </section>
     )
