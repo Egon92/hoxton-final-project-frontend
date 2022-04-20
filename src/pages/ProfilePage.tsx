@@ -33,7 +33,7 @@ export function ProfilePage() {
             <div className="bottom-job-description-wrapper">
               <span id="bottom-job-description">{project.description}</span>
             </div>
-            <div className="bottom-payment-wrapper">{project.price}</div>
+            <div className="bottom-payment-wrapper">{project.price}$</div>
           </div>))}
         </div>
       </main>
