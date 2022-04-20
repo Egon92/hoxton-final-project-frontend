@@ -15,7 +15,7 @@ export function ProfilePageEmployer() {
             <HeaderAsEmployer />
             <main className="main-wrapper__">
                 <div className="employer-info__wrapper">
-                    <img src="/assets/account_circle_black_24dp.svg" alt="" />
+                    <img src={user?.avatar} alt="" />
                     <div className="employer__details">
                         <h1>{user?.full_name}</h1>
                         <p>{user?.bio}</p>
