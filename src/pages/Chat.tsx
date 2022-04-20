@@ -23,7 +23,6 @@ export default function Chat() {
                                         <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar" />
                                         <div className="about">
                                             <div className="name">Aiden Chavez</div>
-                                            {/* <div className="status"> <i className="fa fa-circle online"></i> online </div> */}
                                         </div>
                                     </li>
 
@@ -31,7 +30,6 @@ export default function Chat() {
                                         <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar" />
                                         <div className="about">
                                             <div className="name">Dean Henry</div>
-                                            {/* <div className="status"> <i className="fa fa-circle offline"></i> offline since Oct 28 </div> */}
                                         </div>
                                     </li>
 
@@ -48,7 +46,6 @@ export default function Chat() {
 
                                             <div className="chat-about">
                                                 <h6 className="m-b-0">Aiden Chavez</h6>
-                                                {/* <small>Last seen: 2 hours ago</small> */}
                                             </div>
                                         </div>
 
