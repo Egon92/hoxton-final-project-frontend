@@ -4,17 +4,18 @@ import "./Modal Styling/postJob.css";
 export default function SignInModal() {
 
     const updateModal = useStore(state => state.updateModal);
-
-    async function postBid() {
+    const user = useStore(state => state.user);
+    const selectedProject = useStore(state => state.selectedProject);
+    async function postBid(amount: number) {
         await fetch('http://localhost:4000/bids', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                project_id: 2,
-                bids: 6996,
-                employee_id: 1
+                employee_id: user?.id,
+                project_id: selectedProject,
+                bids: amount
             })
         }).then(res => res.json())
             .then(data => {
@@ -33,9 +34,9 @@ export default function SignInModal() {
                 </button>
                 <div className='modal-container'>
                     <h1>Post a job</h1>
-                    <form onSubmit={(e) => {
+                    <form onSubmit={(e: any) => {
                         e.preventDefault()
-                        postBid()
+                        postBid(Number(e.target.amount.value))
                     }}>
                         <div>
                             <label htmlFor="amount">Enter the amount you offer</label>

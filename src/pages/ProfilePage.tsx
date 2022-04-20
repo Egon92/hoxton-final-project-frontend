@@ -1,9 +1,12 @@
 import { HeaderAsEmployee } from "../components/HeaderAsEmployee";
+import { useStore } from '../components/store';
 import "../styling/profilePage.css";
 
 export function ProfilePage() {
+  const user = useStore(store => store.user )
+  if(user === null) return <div>Loading...</div>
   return (
-    <section className="home-wrapper">
+    <section className="profile-home-wrapper">
       <HeaderAsEmployee />
       <main className="profile-home-main-wrapper">
         <div className="top-main-home-wrapper">
@@ -11,81 +14,27 @@ export function ProfilePage() {
             <div className="top-profile-pic-wrapper">
               <img
                 id="top-profile-pic"
-                src="/assets/account_circle_black_24dp.svg"
+                src={user.avatar}
                 alt=""
               />
             </div>
             <div className="top-job-description-wrapper">
-              <span className="top-worker-name">Worker name</span>
-              <span id="top-job-description">Bio</span>
-              <div className="top-payment-wrapper">Hourly rate</div>
+              <span className="top-worker-name">{user.full_name}</span>
+              <span id="top-job-description">{user.bio}</span>
+              <div className="top-payment-wrapper">{user.phone}</div>
             </div>
           </div>
         </div>
         <div className="bottom-main-home-wrapper">
-          <div className="bottom-job-wrapper">
+          {user.acceptedProjects.map(project => (<div className="bottom-job-wrapper">
             <div className="bottom-job-title-wrapper">
-              <span id="bottom-job-title-wrapper">Job title</span>
+              <span id="bottom-job-title-wrapper">{project.title}</span>
             </div>
             <div className="bottom-job-description-wrapper">
-              <span id="bottom-job-description">Job description</span>
+              <span id="bottom-job-description">{project.description}</span>
             </div>
-            <div className="bottom-payment-wrapper">Payment</div>
-          </div>
-          <div className="bottom-job-wrapper">
-            <div className="bottom-job-title-wrapper">
-              <span id="bottom-job-title-wrapper">Job title</span>
-            </div>
-            <div className="bottom-job-description-wrapper">
-              <span id="bottom-job-description">Job description</span>
-            </div>
-            <div className="bottom-payment-wrapper">Payment</div>
-          </div>
-          <div className="bottom-job-wrapper">
-            <div className="bottom-job-title-wrapper">
-              <span id="bottom-job-title-wrapper">Job title</span>
-            </div>
-            <div className="bottom-job-description-wrapper">
-              <span id="bottom-job-description">Job description</span>
-            </div>
-            <div className="bottom-payment-wrapper">Payment</div>
-          </div>
-          <div className="bottom-job-wrapper">
-            <div className="bottom-job-title-wrapper">
-              <span id="bottom-job-title-wrapper">Job title</span>
-            </div>
-            <div className="bottom-job-description-wrapper">
-              <span id="bottom-job-description">Job description</span>
-            </div>
-            <div className="bottom-payment-wrapper">Payment</div>
-          </div>
-          <div className="bottom-job-wrapper">
-            <div className="bottom-job-title-wrapper">
-              <span id="bottom-job-title-wrapper">Job title</span>
-            </div>
-            <div className="bottom-job-description-wrapper">
-              <span id="bottom-job-description">Job description</span>
-            </div>
-            <div className="bottom-payment-wrapper">Payment</div>
-          </div>
-          <div className="bottom-job-wrapper">
-            <div className="bottom-job-title-wrapper">
-              <span id="bottom-job-title-wrapper">Job title</span>
-            </div>
-            <div className="bottom-job-description-wrapper">
-              <span id="bottom-job-description">Job description</span>
-            </div>
-            <div className="bottom-payment-wrapper">Payment</div>
-          </div>
-          <div className="bottom-job-wrapper">
-            <div className="bottom-job-title-wrapper">
-              <span id="bottom-job-title-wrapper">Job title</span>
-            </div>
-            <div className="bottom-job-description-wrapper">
-              <span id="bottom-job-description">Job description</span>
-            </div>
-            <div className="bottom-payment-wrapper">Payment</div>
-          </div>
+            <div className="bottom-payment-wrapper">{project.price}$</div>
+          </div>))}
         </div>
       </main>
     </section>

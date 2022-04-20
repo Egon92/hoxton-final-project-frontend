@@ -2,6 +2,7 @@
     display: grid;
     grid-gap: 1rem;
     justify-items: center;
+    padding-bottom: 2rem;
 }
 
 .employer-info__wrapper img {

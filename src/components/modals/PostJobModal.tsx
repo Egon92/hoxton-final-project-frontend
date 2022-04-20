@@ -1,12 +1,10 @@
-import { useState } from "react";
 import { useStore } from "../store"
 import "./Modal Styling/postJob.css";
 
 export default function SignInModal() {
 
-    const  updateModal  = useStore(state => state.updateModal);
-    const [project, setProject] = useState<Project[]>([])
-
+    const  updateModal = useStore(state => state.updateModal);
+    const  addProject = useStore(state => state.addProject);
     async function postProject(e: any) {
         e.preventDefault()
         const price = Number(e.target.price.value)
@@ -35,7 +33,9 @@ export default function SignInModal() {
                 if (data.error) {
                     console.log(data.error)
                 } else {
-                    updateModal("")         
+                    updateModal("")
+                    addProject(data);   
+                    window.location.reload()
                 }
             })
 
