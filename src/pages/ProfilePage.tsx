@@ -3,8 +3,10 @@ import { useStore } from '../components/store';
 import "../styling/profilePage.css";
 
 export function ProfilePage() {
-  const user = useStore(store => store.user )
-  if(user === null) return <div>Loading...</div>
+  const user = useStore(store => store.user)
+  if (user === null) return <div>Loading...</div>
+
+  console.log(user.acceptedProjects)
   return (
     <section className="profile-home-wrapper">
       <HeaderAsEmployee />
@@ -25,16 +27,18 @@ export function ProfilePage() {
             </div>
           </div>
         </div>
-        <div className="bottom-main-home-wrapper">
-          {user.acceptedProjects.map(project => (<div className="bottom-job-wrapper">
-            <div className="bottom-job-title-wrapper">
-              <span id="bottom-job-title-wrapper">{project.title}</span>
+        <div className="bottom_main_home_wrapper">
+          {user.acceptedProjects.map(project => (
+            <div className="bottom_job_wrapper">
+              <div className="bottom_job_title_wrapper">
+                <span id="bottom_job_title_wrapper">{project.title}</span>
+              </div>
+              <div className="bottom_job_description_wrapper">
+                <span id="bottom_job_description">{project.description}</span>
+              </div>
+              <div className="bottom_payment_wrapper">{project.price}$</div>
             </div>
-            <div className="bottom-job-description-wrapper">
-              <span id="bottom-job-description">{project.description}</span>
-            </div>
-            <div className="bottom-payment-wrapper">{project.price}$</div>
-          </div>))}
+          ))}
         </div>
       </main>
     </section>
