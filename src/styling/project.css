@@ -102,7 +102,7 @@
   align-content: start;
   justify-content: center;
 }
-.job_description button{
+.top-main-job-wrapper button{
   background: -webkit-linear-gradient(#474747, #757575);
   color: white;
   border: none;
@@ -112,7 +112,7 @@
   cursor: pointer; 
 }
 
-.job_description button:hover {
+.top-main-job-wrapper button:hover {
   transform: scale(1.07);
   transition: .2s;
 }
