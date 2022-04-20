@@ -16,6 +16,7 @@ import Modals from './components/modals/Modals';
 
 function App() {
   const [projects, setProjects] = useState<Project[]>([])
+  const [employees, setEmployees] = useState<any>([])
   const [search, setSearch] = useState('')
 
   const validate = useStore(store => store.validate)
@@ -28,6 +29,10 @@ function App() {
     fetch(`http://localhost:4000/projects`)
       .then(resp => resp.json())
       .then(data => setProjects(data))
+
+    fetch(`http://localhost:4000/employees`)
+      .then(resp => resp.json())
+      .then(data => setEmployees(data))
   }, [])
 
   function filterProjects() {
@@ -44,6 +49,10 @@ function App() {
     project.title.toUpperCase().includes(search.toUpperCase())
   )
 
+  const searchedEmployees = employees.filter((employee: any) =>
+    employee.full_name.toUpperCase().includes(search.toUpperCase())
+  )
+
 
   return (
     <div className="App">
@@ -53,13 +62,13 @@ function App() {
         <Route path="/home/:id" element={<Project />} />
         <Route path="/employee" element={<HomeAsEmployee search={search} setSearch={setSearch} searcheditems={searcheditems} />} />
         <Route path="/employee/:id" element={<ProjectAsEmployee />} />
-        <Route path="/employer" element={<HomeAsEmployer />} />
+        <Route path="/employer" element={<HomeAsEmployer search={search} setSearch={setSearch} searchedEmployees={searchedEmployees} />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/profileEmployer" element={<ProfilePageEmployer />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
       {/* @ts-ignore */}
-      <Modals/>
+      <Modals />
     </div>
   );
 }

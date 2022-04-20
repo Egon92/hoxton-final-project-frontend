@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 
 
-export function HomeAsEmployer() {
+export function HomeAsEmployer({ search, setSearch, searchedEmployees }: any) {
   const [employees, setEmployees] = useState<User[]>([])
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export function HomeAsEmployer() {
   return (
 
     <section className="home-wrapper">
-      <HeaderAsEmployer />
+      <HeaderAsEmployer setSearch={setSearch}/>
       <main className="home-main-wrapper">
         <div className="left-home-wrapper">
           <div className="filter-by-wrapper">
@@ -24,7 +24,7 @@ export function HomeAsEmployer() {
           </div>
         </div>
         <div className="right-home-wrapper">
-          {employees.map(employee => {
+          {searchedEmployees.map((employee:any) => {
             return (
               // <div className="card_wrapper">
               <div className="job-wrapper">
@@ -47,21 +47,6 @@ export function HomeAsEmployer() {
               // </div>
             )
           })}
-
-          {/* <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <img
-                id="profile-pic"
-                src="/public/assets/account_circle_black_24dp.svg"
-                alt="profile-pic"
-              />
-              <span id="days-left-wrapper">Worker name</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Bio</span>
-            </div>
-            <div className="payment-wrapper">Hourly rate</div>
-          </div> */}
         </div>
       </main>
     </section>

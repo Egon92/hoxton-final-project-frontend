@@ -3,7 +3,7 @@ import "../styling/headerAsEmployee.css";
 import { useStore } from "./store";
 
 
-export function HeaderAsEmployer() {
+export function HeaderAsEmployer({ setSearch }: any) {
 
     const signOut = useStore(store => store.signOut);
 
@@ -20,7 +20,9 @@ export function HeaderAsEmployer() {
                 </div>
                 <div className="center-nav">
                     <form className="search-form-wrapper" action="">
-                        <input className="search-bar" type="text" placeholder="Search..." />
+                        <input onChange={e => {
+                            setSearch(e.target.value)
+                        }} className="search-bar" type="text" placeholder="Search..." />
                         <button className="search_svg">
                             <img src={`public/assets/search.svg`} alt="" />
                         </button>
