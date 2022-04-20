@@ -26,7 +26,6 @@ export function HomeAsEmployer() {
         <div className="right-home-wrapper">
           {employees.map(employee => {
             return (
-              // <div className="card_wrapper">
               <div className="job-wrapper">
                 <div className="job-title-days-wrapper">
                   <img
@@ -44,24 +43,8 @@ export function HomeAsEmployer() {
                   <span className="phone-wrapper">{employee.phone}</span>
                 </div>
               </div>
-              // </div>
             )
           })}
-
-          {/* <div className="job-wrapper">
-            <div className="job-title-days-wrapper">
-              <img
-                id="profile-pic"
-                src="/public/assets/account_circle_black_24dp.svg"
-                alt="profile-pic"
-              />
-              <span id="days-left-wrapper">Worker name</span>
-            </div>
-            <div className="job-description-wrapper">
-              <span id="job-description">Bio</span>
-            </div>
-            <div className="payment-wrapper">Hourly rate</div>
-          </div> */}
         </div>
       </main>
     </section>
