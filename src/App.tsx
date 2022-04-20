@@ -10,6 +10,7 @@ import ProjectAsEmployee from "./pages/ProjectAsEmployee";
 import { useStore } from "./components/store";
 import { useEffect, useState } from "react";
 import Modals from './components/modals/Modals';
+import Chat from "./pages/Chat";
 
 
 
@@ -56,10 +57,11 @@ function App() {
         <Route path="/employer" element={<HomeAsEmployer />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/profileEmployer" element={<ProfilePageEmployer />} />
+        <Route path="/chat" element={<Chat />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
       {/* @ts-ignore */}
-      <Modals/>
+      <Modals />
     </div>
   );
 }
