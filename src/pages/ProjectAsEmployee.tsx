@@ -11,9 +11,11 @@ export default function ProjectAsEmployee() {
     const [projectDetails, setProjectDetails] = useState<Project|null>(null)
     const [search, setSearch] = useState('')
     const updateModal = useStore(state => state.updateModal);
-
+    const setSelectedProejct = useStore(state => state.setSelectedProject);
 
     const params = useParams()
+    useEffect(() => {setSelectedProejct(Number(params.id))}
+    ,[params.id])
     useEffect(() => {
         fetch(`http://localhost:4000/projects/${params.id}`)
             .then(resp => resp.json())
@@ -51,7 +53,7 @@ export default function ProjectAsEmployee() {
 
                     <div className="job_description">
                         {/* @ts-ignore */}
-                        <h3>hourly rate {projectDetails.price}$ </h3>
+                        <h3> {projectDetails.price}$ </h3>
                         <button>Chat</button>
                         <button onClick={() => updateModal('post-bids')}>apply</button>
 
