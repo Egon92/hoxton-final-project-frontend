@@ -5,41 +5,43 @@ import '../styling/profileEmployer.css'
 
 export function ProfilePageEmployer() {
 
-    const  updateModal  = useStore(store=> store.updateModal)
+    const updateModal = useStore(store => store.updateModal)
     const user = useStore(store => store.user)
     const setSelectedProject = useStore(store => store.setSelectedProject)
 
 
     return (
-        <section className="profile-wrapper">
+        <section className="profile__wrapper">
             <HeaderAsEmployer />
-            <main className="main-wrapper">
-                <div className="employer-info-wrapper">
+            <main className="main-wrapper__">
+                <div className="employer-info__wrapper">
                     <img src="/assets/account_circle_black_24dp.svg" alt="" />
-                    <div className="employer-details">
+                    <div className="employer__details">
                         <h1>User full name</h1>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos expedita officiis similique totam sed enim aliquam aliquid consectetur, at illum, quibusdam nihil veniam, odit quasi in? Incidunt aperiam aspernatur quasi.</p>
                         <h3>average payrate</h3>
                     </div>
                 </div>
-                <div className="employer-jobs-info">
+
+                <div className="employer-jobs__info">
                     <h1>Previous jobs posted</h1>
                     <button onClick={() => { updateModal('post-job') }}>Post a job</button>
-                    {user?.postedProjects.map(project =>  <div className="job-wrapper" onClick={()=> setSelectedProject(project.id)}>
-                        <div className="job-title-days-wrapper">
+                    {user?.postedProjects.map(project => <div className="employer_profile_wrapper"
+                        onClick={() => setSelectedProject(project.id)}>
+                        <div className="job_title_days_wrapper">
                             <span id="job-title-wrapper">{project.title}</span>
-                            <span id="days-left-wrapper">{project.deadline}</span>
+                            <span id="days_left_wrapper">{project.deadline}</span>
                         </div>
                         <div className="job-description-wrapper">
                             <span id="job-description">{project.description}</span>
                         </div>
-                        <div className="payment-wrapper">
-                            {project.price}$
+                        <div className="payment__wrapper">
+                            {/* {project.price}$ */}
                             <button onClick={() => updateModal('see-bids')}>See bids</button>
                         </div>
                     </div>)}
-                   
-                    
+
+
                 </div>
             </main>
             {/* @ts-ignore */}

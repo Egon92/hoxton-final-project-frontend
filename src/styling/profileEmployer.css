@@ -1,12 +1,15 @@
-.main-wrapper {
+.main-wrapper__ {
     display: grid;
     grid-gap: 1rem;
     justify-items: center;
 }
-.employer-info-wrapper img{
+
+.employer-info__wrapper img {
     width: 9rem;
 }
-.employer-info-wrapper {
+
+
+.employer-info__wrapper {
     margin-top: 3rem;
     display: grid;
     grid-auto-flow: column;
@@ -16,45 +19,68 @@
     justify-content: center;
 }
 
-.employer-details {
+
+#days_left_wrapper {
+    display: grid;
+    justify-items: end;
+}
+
+
+.job_title_days_wrapper {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.employer_profile_wrapper {
+    padding: 0.3rem;
+    background-color: (0, 0, 0, 0.04);
+    border: 0.1px solid rgb(168, 175, 182);
+    display: grid;
+    width: 80vw
+}
+
+
+.employer__details {
     display: grid;
     grid-gap: .4rem;
 }
 
-.employer-details p {
+.employer__details p {
     width: 70ch;
 }
 
-.employer-jobs-info {
+
+.employer-jobs__info {
     display: grid;
     grid-gap: 1rem;
 }
 
-.employer-jobs-info button {
+
+.employer-jobs__info button {
     background: -webkit-linear-gradient(#474747, #757575);
     color: white;
     border: none;
     border-radius: 25px;
     padding: 10px;
     width: 270px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
-.employer-jobs-info button:hover {
+
+.employer-jobs__info button:hover {
     transform: scale(1.07);
     transition: .2s;
 }
 
-.payment-wrapper {
+
+.payment__wrapper {
     display: grid;
-    grid-auto-flow: row;
-    justify-items: center;
-    gap: 1rem;
+    grid-auto-flow: column;
+    justify-items: right;
+    /* gap: 1rem; */
 }
 
-.payment-wrapper button {
+
+.payment__wrapper button {
     width: fit-content;
-}
-.employer-jobs-info .job-wrapper {
-    padding: 1rem;
 }
