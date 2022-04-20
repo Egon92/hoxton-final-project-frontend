@@ -17,9 +17,9 @@ export function ProfilePageEmployer() {
                 <div className="employer-info__wrapper">
                     <img src="/assets/account_circle_black_24dp.svg" alt="" />
                     <div className="employer__details">
-                        <h1>User full name</h1>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos expedita officiis similique totam sed enim aliquam aliquid consectetur, at illum, quibusdam nihil veniam, odit quasi in? Incidunt aperiam aspernatur quasi.</p>
-                        <h3>average payrate</h3>
+                        <h1>{user?.full_name}</h1>
+                        <p>{user?.bio}</p>
+                        <h3>{user?.phone}</h3>
                     </div>
                 </div>
 
@@ -27,6 +27,7 @@ export function ProfilePageEmployer() {
                     <h1>Previous jobs posted</h1>
                     <button onClick={() => { updateModal('post-job') }}>Post a job</button>
                     {user?.postedProjects.map(project => <div className="employer_profile_wrapper"
+                        key={project.id}
                         onClick={() => setSelectedProject(project.id)}>
                         <div className="job_title_days_wrapper">
                             <span id="job-title-wrapper">{project.title}</span>

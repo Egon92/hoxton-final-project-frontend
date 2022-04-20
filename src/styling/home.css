@@ -9,6 +9,7 @@
   grid-template-columns: 15rem 1fr;
   margin-top: 3rem;
   padding-right: 3rem;
+  padding-bottom: 2rem;
 }
 
 .left__home-wrapper {
