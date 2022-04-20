@@ -79,7 +79,7 @@ export const useStore = create<appState>((set, get) => ({
         set({ selectedProject: id })
     },
     addProject: (project: Project) => {
-        const updatedUser = get().user
+        const updatedUser:User = JSON.parse(JSON.stringify(get().user))
         updatedUser?.postedProjects.push(project)
         set({ user: updatedUser });
     }
