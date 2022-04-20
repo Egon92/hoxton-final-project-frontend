@@ -35,7 +35,6 @@ export default function SignInModal() {
                 } else {
                     updateModal("")
                     addProject(data);   
-                    window.location.reload()
                 }
             })
 
@@ -60,8 +59,8 @@ export default function SignInModal() {
                         </div>
                         <div>
                             <label htmlFor="cateegory">Select a category for your project:</label>
-                            <select name='category' required>
-                                <option selected disabled  value="">Select a category</option>
+                            <select name='category' required defaultValue="">
+                                <option  disabled  value="">Select a category</option>
                                 <option  value={1}>Graphics Design</option>
                                 <option  value={2}>Digital Marketing</option>
                                 <option  value={3}>Writing & Translation</option>
