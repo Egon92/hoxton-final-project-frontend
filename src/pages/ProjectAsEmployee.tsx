@@ -8,26 +8,28 @@ import "../styling/project.css";
 export default function ProjectAsEmployee() {
 
     const [projects, setProjects] = useState<Project[]>([])
-    const [projectDetails, setProjectDetails] = useState<Project[]>([])
+    const [projectDetails, setProjectDetails] = useState<Project|null>(null)
     const [search, setSearch] = useState('')
     const updateModal = useStore(state => state.updateModal);
 
 
     const params = useParams()
-
-    useEffect(() => {
-        fetch(`http://localhost:4000/projects`)
-            .then(resp => resp.json())
-            .then(data => setProjects(data))
-    }, [])
-
-
-
     useEffect(() => {
         fetch(`http://localhost:4000/projects/${params.id}`)
             .then(resp => resp.json())
-            .then(data => setProjectDetails(data))
+            .then(data => setProjectDetails(data)
+            )
     }, [])
+    useEffect(() => {
+        fetch(`http://localhost:4000/projects`)
+            .then(resp => resp.json())
+            //@ts-ignore
+            .then(data => setProjects(data.filter(project => (project.id !== projectDetails?.id && project.employer_id === projectDetails?.employer_id))))
+    }, [projectDetails])
+
+
+
+    
 
 
     if (projectDetails === null) return <h1>Loading...</h1>

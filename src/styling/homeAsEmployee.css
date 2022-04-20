@@ -1,65 +1,66 @@
-.home-wrapper {
-  height: 100%;
-  width: 100%;
-  display: grid;
+.employee-wrapper {
+  height: 100vh;
+  width: 100vw;
 }
 
-.home-main-wrapper {
+.employee-main-wrapper {
   display: grid;
   grid-template-columns: 15rem 1fr;
-  margin-bottom: 50rem;
+  margin-top: 3rem;
+  padding-right: 3rem;
 }
 
-.left-home-wrapper {
+
+.left-employee-wrapper {
   display: grid;
   grid-auto-flow: row;
   min-width: max-content;
 }
 
-.filter-by-wrapper {
+.filter-wrapper {
   display: grid;
   align-content: start;
   justify-content: center;
 }
 
-.right-home-wrapper {
+
+.right-employee-wrapper {
   display: grid;
   grid-auto-flow: row;
-  width: 0.75fr;
   place-content: center;
   align-content: start;
-  min-width: max-content;
-  gap: 2rem;
+  gap: 1.5rem;
+
 }
 
-.job-wrapper {
+
+.employee-job-wrapper {
   padding: 0.3rem;
   background-color: (0, 0, 0, 0.04);
   border: 0.1px solid rgb(168, 175, 182);
   height: auto;
   display: grid;
-  width: 100vw;
 }
 
-.job-wrapper:hover {
+
+.employee-job-wrapper:hover {
   transform: scale(1.07);
   background-color: #dee2e6b2;
   transition: 1s;
 }
 
-.job-title-days-wrapper {
+#days-left-wrapper {
+  display: grid;
+  justify-items: end;
+}
+
+
+.employee-job-title-days-wrapper {
   display: grid;
   grid-auto-flow: column;
-  align-content: center;
 }
 
-.job-description-wrapper {
-  display: grid;
-  place-content: start;
-}
 
-.payment-wrapper {
+.employee-job-description-wrapper {
   display: grid;
-  align-content: start;
-  justify-content: center;
 }

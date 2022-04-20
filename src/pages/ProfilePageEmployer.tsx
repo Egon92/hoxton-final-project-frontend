@@ -5,7 +5,10 @@ import '../styling/profileEmployer.css'
 
 export function ProfilePageEmployer() {
 
-    const { updateModal } = useStore()
+    const  updateModal  = useStore(store=> store.updateModal)
+    const user = useStore(store => store.user)
+    const setSelectedProject = useStore(store => store.setSelectedProject)
+
 
     return (
         <section className="profile-wrapper">
@@ -22,21 +25,24 @@ export function ProfilePageEmployer() {
                 <div className="employer-jobs-info">
                     <h1>Previous jobs posted</h1>
                     <button onClick={() => { updateModal('post-job') }}>Post a job</button>
-                    <div className="job-wrapper">
+                    {user?.postedProjects.map(project =>  <div className="job-wrapper" onClick={()=> setSelectedProject(project.id)}>
                         <div className="job-title-days-wrapper">
-                            <span id="job-title-wrapper">Job title</span>
-                            <span id="days-left-wrapper">Days left</span>
+                            <span id="job-title-wrapper">{project.title}</span>
+                            <span id="days-left-wrapper">{project.deadline}</span>
                         </div>
                         <div className="job-description-wrapper">
-                            <span id="job-description">Job description</span>
+                            <span id="job-description">{project.description}</span>
                         </div>
                         <div className="payment-wrapper">
-                            Payment
+                            {project.price}$
                             <button onClick={() => updateModal('see-bids')}>See bids</button>
                         </div>
-                    </div>
+                    </div>)}
+                   
+                    
                 </div>
             </main>
+            {/* @ts-ignore */}
             < Modals />
         </section>
     )

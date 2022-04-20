@@ -32,12 +32,12 @@
 
 .employer-jobs-info button {
     background: -webkit-linear-gradient(#474747, #757575);
-  color: white;
-  border: none;
-  border-radius: 25px;
-  padding: 10px;
-  width: 270px;
-  cursor: pointer; 
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    width: 270px;
+    cursor: pointer; 
 }
 
 .employer-jobs-info button:hover {
@@ -54,4 +54,7 @@
 
 .payment-wrapper button {
     width: fit-content;
+}
+.employer-jobs-info .job-wrapper {
+    padding: 1rem;
 }

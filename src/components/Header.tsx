@@ -1,10 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import "../styling/header.css";
 import { useStore } from "../components/store"
-import Modals from "./modals/Modals";
 import { Link } from "react-router-dom";
 
-export function Header() {
+export function Header({ setSearch }: any) {
     const navigate = useNavigate();
     const { updateModal } = useStore()
 
@@ -20,7 +19,9 @@ export function Header() {
                 </div>
                 <div className="center-nav">
                     <form className="search-form-wrapper" action="">
-                        <input className="search-bar" type="text" placeholder="Search..." />
+                        <input onChange={e => {
+                            setSearch(e.target.value)
+                        }} className="search-bar" type="text" placeholder="Search..." />
                         <button className="search_svg"><img src={`/assets/search.svg`} alt="" /></button>
                     </form>
                 </div>
@@ -33,10 +34,7 @@ export function Header() {
                         <span onClick={() => { updateModal('sign-up-as-employee') }} id="want-to-work">| want to work</span>
                     </div>
                 </div>
-            </nav>
-            {/* <div className="top-jobs-bar">Top jobs</div> */}
-            {/* @ts-ignore */}
-            <Modals />
+            </nav>            
         </section>
     );
 }
