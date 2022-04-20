@@ -10,9 +10,10 @@ type appState = {
     validate: () => void,
     selectedProject : number,
     setSelectedProject : (id: number) => void,
+    addProject: (project: Project) => void
 }
 
-export const useStore = create<appState>((set) => ({
+export const useStore = create<appState>((set, get) => ({
     modal: '',
     updateModal: newModal => set({ modal: newModal }),
     user: null,
@@ -76,5 +77,10 @@ export const useStore = create<appState>((set) => ({
     selectedProject: 0,
     setSelectedProject: (id: number) => {
         set({ selectedProject: id })
+    },
+    addProject: (project: Project) => {
+        const updatedUser = get().user
+        updatedUser?.postedProjects.push(project)
+        set({ user: updatedUser });
     }
 }))
