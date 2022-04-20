@@ -10,6 +10,7 @@ import ProjectAsEmployee from "./pages/ProjectAsEmployee";
 import { useStore } from "./components/store";
 import { useEffect, useState } from "react";
 import Modals from './components/modals/Modals';
+import { EmployeeProfile } from "./pages/EmployeeProfile";
 
 
 
@@ -63,6 +64,7 @@ function App() {
         <Route path="/employee" element={<HomeAsEmployee search={search} setSearch={setSearch} searcheditems={searcheditems} />} />
         <Route path="/employee/:id" element={<ProjectAsEmployee />} />
         <Route path="/employer" element={<HomeAsEmployer search={search} setSearch={setSearch} searchedEmployees={searchedEmployees} />} />
+        <Route path="/employer/:id" element={<EmployeeProfile />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/profileEmployer" element={<ProfilePageEmployer />} />
         <Route path="*" element={<h1>Not Found</h1>} />

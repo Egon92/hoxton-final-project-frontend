@@ -1,6 +1,7 @@
 import { HeaderAsEmployer } from "../components/HeaderAsEmployer";
 import "../styling/homeAsEmployer.css";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -24,9 +25,8 @@ export function HomeAsEmployer({ search, setSearch, searchedEmployees }: any) {
           </div>
         </div>
         <div className="right-home-wrapper">
-          {searchedEmployees.map((employee:any) => {
-            return (
-              // <div className="card_wrapper">
+          {searchedEmployees.map((employee:any) => 
+            <Link to={`/employer/${employee.id}`} key={employee.id}>
               <div className="job-wrapper">
                 <div className="job-title-days-wrapper">
                   <img
@@ -44,9 +44,8 @@ export function HomeAsEmployer({ search, setSearch, searchedEmployees }: any) {
                   <span className="phone-wrapper">{employee.phone}</span>
                 </div>
               </div>
-              // </div>
-            )
-          })}
+            </Link>
+          )}
         </div>
       </main>
     </section>
