@@ -38,8 +38,10 @@ export function ProfilePageEmployer() {
                         </div>
                         <div className="payment__wrapper">
                             {/* {project.price}$ */}
-                            <button onClick={() => updateModal('see-bids')}>See bids</button>
-                        </div>
+                            {
+                            !project.employee_id && <button onClick={() => updateModal('see-bids')}>See bids</button>
+                            }
+                         </div>
                     </div>)}
 
 

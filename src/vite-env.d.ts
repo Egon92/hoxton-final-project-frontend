@@ -23,7 +23,7 @@ type Project = {
     status: boolean
     employer_id: number
     category_id: number
-    employee: User | null
+    employee_id: number | null
 }
 
 type Bid = {
