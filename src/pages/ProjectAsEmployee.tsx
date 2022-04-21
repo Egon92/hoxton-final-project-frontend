@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { HeaderAsEmployee } from "../components/HeaderAsEmployee";
 import Modals from "../components/modals/Modals";
 import { useStore } from "../components/store";
@@ -12,6 +12,7 @@ export default function ProjectAsEmployee() {
     const [search, setSearch] = useState('')
     const updateModal = useStore(state => state.updateModal);
     const setSelectedProejct = useStore(state => state.setSelectedProject);
+    const Navigate = useNavigate()
 
     const params = useParams()
     useEffect(() => { setSelectedProejct(Number(params.id)) }
@@ -28,9 +29,6 @@ export default function ProjectAsEmployee() {
             //@ts-ignore
             .then(data => setProjects(data.filter(project => (project.id !== projectDetails?.id && project.employer_id === projectDetails?.employer_id))))
     }, [projectDetails])
-
-
-
 
 
 
@@ -54,7 +52,7 @@ export default function ProjectAsEmployee() {
                     <div className="job_description">
                         {/* @ts-ignore */}
                         <h3> {projectDetails.price}$ </h3>
-                        <button>Chat</button>
+                        <button onClick={() => { Navigate('/chat') }}>Chat</button>
                         <button onClick={() => updateModal('post-bids')}>apply</button>
 
                     </div>

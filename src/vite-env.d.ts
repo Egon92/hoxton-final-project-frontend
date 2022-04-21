@@ -33,3 +33,17 @@ type Bid = {
     project_id: number
     employee: User
 }
+
+type Chat = {
+    id: number
+    messageText: string
+    conversation_id: number
+    user_id: number
+}
+
+type Conversation = {
+    id: number
+    user_id: number
+    participant_id: number
+    chats: Chat[]
+}

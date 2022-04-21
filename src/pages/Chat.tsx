@@ -1,8 +1,87 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { HeaderAsEmployee } from '../components/HeaderAsEmployee'
+import { useStore } from '../components/store'
 import '../styling/chat.css'
 
 
 export default function Chat() {
+
+
+    const [currentConversation, setCurrentConversation] = useState<Conversation | null>(null)
+    const user = useStore(store => store.user)
+    const params = useParams()
+
+    function createMessage(text: Chat): void {
+        fetch('http://localhost:4000/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user_id: user?.id,
+                messageText: text,
+                conversation_id: Number(currentConversation?.id)
+            })
+        })
+            .then(resp => resp.json())
+            .then(newMessage => {
+                const currentConversationCopy = JSON.parse(
+                    JSON.stringify(currentConversation)
+                )
+                currentConversationCopy.push(newMessage)
+                setCurrentConversation(currentConversationCopy)
+            })
+    }
+
+    useEffect(() => {
+        fetch(
+            `http://localhost:4000/conversations`
+
+        )
+            .then(resp => resp.json())
+            .then(conversation => setCurrentConversation(conversation))
+
+    }, [])
+
+    console.log(user)
+
+    // async function createMessage(e: any) {
+    //     e.preventDefault()
+    //     e.target.reset()
+
+    //     const messageText = e.target.text.value
+    //     const user_id = user?.id
+    //     const conversation_id = Number(currentConversation?.id)
+
+    //     await fetch('http://localhost:4000/chat', {
+    //         method: 'POST',
+    //         headers: {
+    //             Authorization: localStorage.token,
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             user_id: user_id,
+    //             conversation_id: conversation_id,
+    //             messageText: messageText
+    //         })
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             if (data.error) {
+    //                 console.log(data.error)
+    //             } else {
+    //                 setCurrentConversation(data);
+    //             }
+    //         })
+
+    // }
+
+
+    console.log(currentConversation)
+
+    if (currentConversation === null) return <h1>Loading...</h1>
+
     return (
         <div className='main_chat_wraper'>
             <HeaderAsEmployee />
@@ -10,6 +89,7 @@ export default function Chat() {
                 <div className="row clearfix">
                     <div className="col-lg-12">
                         <div className="card chat-app">
+
                             <div id="plist" className="people-list">
                                 <div className="input-group">
                                     <div className="input-group-prepend">
@@ -41,42 +121,40 @@ export default function Chat() {
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <a href=" " >
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar" />
+                                                <img src={user?.avatar} alt="avatar" />
                                             </a>
 
                                             <div className="chat-about">
-                                                <h6 className="m-b-0">Aiden Chavez</h6>
+                                                <h6 className="m-b-0">{user?.full_name}</h6>
                                             </div>
                                         </div>
 
                                     </div>
                                 </div>
-                                <div className="chat-history">
-                                    <ul className="m-b-0">
 
+                                <div className="chat-history">
+                                    {/* {currentConversation?.chats.map(message => */}
+                                    <ul className="m-b-0">
                                         <li className="clearfix">
                                             <div className="message-data text-right">
-                                                <span className="message-data-time">10:10 AM, Today</span>
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar" />
+
                                             </div>
-                                            <div className="message other-message float-right"> Hi Aiden, how are you? How is the project coming along? </div>
+                                            <div className="message other-message float-right">
+                                                {/* {message.messageText} */}
+                                            </div>
                                         </li>
 
                                         <li className="clearfix">
-                                            <div className="message-data">
-                                                <span className="message-data-time">10:12 AM, Today</span>
+                                            <div className="message my-message">
+                                                {/* {message.messageText} */}
                                             </div>
-                                            <div className="message my-message">Are we meeting today?</div>
                                         </li>
 
-                                        <li className="clearfix">
-                                            <div className="message-data">
-                                                <span className="message-data-time">10:15 AM, Today</span>
-                                            </div>
-                                            <div className="message my-message">Project has been already finished and I have results to show you.</div>
-                                        </li>
-
+                                        {/* <li className="clearfix">
+                                                <div className="message my-message">Project has been already finished and I have results to show you.</div>
+                                            </li> */}
                                     </ul>
+                                    {/* )} */}
 
                                 </div>
 
@@ -85,7 +163,16 @@ export default function Chat() {
                                         <div className="input-group-prepend">
                                             <span className="input-group-text"><i className="fa fa-send"></i></span>
                                         </div>
-                                        <input type="text" className="form-control" placeholder="Enter text here..." />
+                                        <form
+                                            onSubmit={(e) => {
+                                                e.preventDefault()
+                                                //@ts-ignore
+                                                createMessage(e.text.value)
+                                            }}>
+                                            <input type="text" className="form-control" name='text' placeholder="Enter text here..." required
+
+                                            />
+                                        </form>
                                     </div>
                                 </div>
                             </div>
