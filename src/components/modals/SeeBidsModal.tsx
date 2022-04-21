@@ -3,6 +3,21 @@ import { useStore } from "../store"
 import "./Modal Styling/seeBids.css";
 
 export default function SignInModal() {
+    //delete bid on server
+    function deleteBidOnServer(id:number) {
+        fetch(`http://localhost:4000/bids/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+          .then(data => {
+                if (data.error) {
+                    console.log(data.error)
+                } 
+            })
+    }
+
     const { updateModal } = useStore()
     const [bids, setBids] = useState<Bid[]>([])
     const selectedProject  = useStore(store=> store.selectedProject)
@@ -61,7 +76,10 @@ export default function SignInModal() {
                         <button title="accept bid" onClick={()=>{
                             acceptBidOnServer(bid.employee_id, bid.project_id)
                         }}>✓</button>
-                        <button title="decline bid">x</button>
+                        <button title="decline bid" onClick={()=>{
+                            deleteBidOnServer(bid.id);
+                            setBids(bids.filter(b=> b.id !== bid.id));
+                        }}>x</button>
                     </div>
                     ))}
                 
