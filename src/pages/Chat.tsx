@@ -11,27 +11,27 @@ export default function Chat() {
     const [currentConversation, setCurrentConversation] = useState<Conversation | null>(null)
     const user = useStore(store => store.user)
 
-    function createMessage(text: Chat): void {
-        fetch('http://localhost:4000/chat', {
-            method: 'POST',
-            headers: {
-                Authorization: localStorage.token,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                messageText: text,
-                conversation_id: Number(currentConversation?.id)
-            })
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.error) {
-                    console.log(data.error)
-                } else {
-                    setCurrentConversation(data);
-                }
-            })
-    }
+    // function createMessage(text: Chat): void {
+    //     fetch('http://localhost:4000/chat', {
+    //         method: 'POST',
+    //         headers: {
+    //             Authorization: localStorage.token,
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             messageText: text,
+    //             conversation_id: Number(currentConversation?.id)
+    //         })
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             if (data.error) {
+    //                 console.log(data.error)
+    //             } else {
+    //                 setCurrentConversation(data);
+    //             }
+    //         })
+    // }
 
     useEffect(() => {
         fetch(`http://localhost:4000/conversations`, {
@@ -46,36 +46,34 @@ export default function Chat() {
 
     console.log(user)
 
-    // async function createMessage(e: any) {
-    //     e.preventDefault()
-    //     e.target.reset()
+    async function createMessage(e: any) {
+        e.preventDefault()
+        e.target.reset()
 
-    //     const messageText = e.target.text.value
-    //     const user_id = user?.id
-    //     const conversation_id = Number(currentConversation?.id)
+        const messageText = e.target.text.value
+        const conversation_id = currentConversation?.id
 
-    //     await fetch('http://localhost:4000/chat', {
-    //         method: 'POST',
-    //         headers: {
-    //             Authorization: localStorage.token,
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             user_id: user_id,
-    //             conversation_id: conversation_id,
-    //             messageText: messageText
-    //         })
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.error) {
-    //                 console.log(data.error)
-    //             } else {
-    //                 setCurrentConversation(data);
-    //             }
-    //         })
+        await fetch('http://localhost:4000/chat', {
+            method: 'POST',
+            headers: {
+                Authorization: localStorage.token,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                conversation_id: conversation_id,
+                messageText: messageText
+            })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error)
+                } else {
+                    setCurrentConversation(data);
+                }
+            })
 
-    // }
+    }
 
 
     console.log(currentConversation)
@@ -166,11 +164,14 @@ export default function Chat() {
                                             <span className="input-group-text"><i className="fa fa-send"></i></span>
                                         </div>
                                         <form
-                                            onSubmit={(e) => {
-                                                e.preventDefault()
+                                            onSubmit={createMessage
+                                                // (e) => {
+                                                //     e.preventDefault()
                                                 //@ts-ignore
-                                                createMessage(e.target.text.value)
-                                            }}>
+                                                //     createMessage(e.target.text.value)
+                                                // }
+                                            }
+                                        >
                                             <input type="text" className="form-control" name='text' placeholder="Enter text here..." required
 
                                             />
