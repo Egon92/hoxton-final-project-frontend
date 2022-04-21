@@ -6,6 +6,7 @@ export default function SignInModal() {
     const { updateModal } = useStore()
     const [bids, setBids] = useState<Bid[]>([])
     const selectedProject  = useStore(store=> store.selectedProject)
+    const updateProject = useStore(store=> store.updateProject)
     useEffect(()=>{
         fetch(`http://localhost:4000/bids/${selectedProject}`)
         .then(resp=> resp.json())
@@ -14,6 +15,23 @@ export default function SignInModal() {
             setBids(data)
         })
     }, [selectedProject])
+
+    function acceptBidOnServer(employee_id:number,project_id:number){
+        fetch(`http://localhost:4000/projects/${project_id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                employee_id: employee_id
+            })
+        })
+        .then(resp => resp.json())
+        .then(project => {
+            updateProject(project)
+            updateModal("")
+        })
+    }
 
     if(bids.length === 0){
         return (
@@ -37,10 +55,12 @@ export default function SignInModal() {
                 <div className='modal-container'>
                     <h1>Bids</h1>
 
-                    {bids.map(bid=> (<div className="bid-card">
+                    {bids.map(bid=> (<div className="bid-card" key={bid.id}>
                         <span>{bid.employee.username}</span>
                         <span>{bid.bids}$</span>
-                        <button title="accept bid">✓</button>
+                        <button title="accept bid" onClick={()=>{
+                            acceptBidOnServer(bid.employee_id, bid.project_id)
+                        }}>✓</button>
                         <button title="decline bid">x</button>
                     </div>
                     ))}

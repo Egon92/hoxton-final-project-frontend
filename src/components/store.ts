@@ -10,7 +10,8 @@ type appState = {
     validate: () => void,
     selectedProject : number,
     setSelectedProject : (id: number) => void,
-    addProject: (project: Project) => void
+    addProject: (project: Project) => void,
+    updateProject: (project: Project) => void,
 }
 
 export const useStore = create<appState>((set, get) => ({
@@ -80,7 +81,13 @@ export const useStore = create<appState>((set, get) => ({
     },
     addProject: (project: Project) => {
         const updatedUser:User = JSON.parse(JSON.stringify(get().user))
-        updatedUser?.postedProjects.push(project)
+        updatedUser.postedProjects.push(project)
+        set({ user: updatedUser });
+    },
+    updateProject: (project: Project) => {
+        const updatedUser:User = JSON.parse(JSON.stringify(get().user))
+        let index = updatedUser.postedProjects.findIndex(p => p.id === project.id)
+        updatedUser.postedProjects[index] = project
         set({ user: updatedUser });
     }
 }))
