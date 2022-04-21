@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { HeaderAsEmployer } from "../components/HeaderAsEmployer";
 import Modals from "../components/modals/Modals";
 import { useStore } from "../components/store"
@@ -8,6 +8,8 @@ import '../styling/profilePage.css'
 export function EmployeeProfile() {
     const params = useParams()
     const [employee, setEmployee] = useState<any>(null)
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch(`http://localhost:4000/employees/${params.id}`)
@@ -38,7 +40,7 @@ export function EmployeeProfile() {
                             <span id="top-job-description">{employee.bio}</span>
                             <h4 className="top-payment-wrapper">Number: {employee.phone}</h4>
                             <h4>Address: {employee?.address}</h4>
-                            <button>chat</button>
+                            <button onClick={() => { navigate('/chat') }}>chat</button>
                         </div>
                     </div>
                 </div>

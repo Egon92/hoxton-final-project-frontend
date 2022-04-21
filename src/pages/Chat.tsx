@@ -10,38 +10,38 @@ export default function Chat() {
 
     const [currentConversation, setCurrentConversation] = useState<Conversation | null>(null)
     const user = useStore(store => store.user)
-    const params = useParams()
 
     function createMessage(text: Chat): void {
         fetch('http://localhost:4000/chat', {
             method: 'POST',
             headers: {
+                Authorization: localStorage.token,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                user_id: user?.id,
                 messageText: text,
                 conversation_id: Number(currentConversation?.id)
             })
         })
-            .then(resp => resp.json())
-            .then(newMessage => {
-                const currentConversationCopy = JSON.parse(
-                    JSON.stringify(currentConversation)
-                )
-                currentConversationCopy.push(newMessage)
-                setCurrentConversation(currentConversationCopy)
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error)
+                } else {
+                    setCurrentConversation(data);
+                }
             })
     }
 
     useEffect(() => {
-        fetch(
-            `http://localhost:4000/conversations`
-
-        )
+        fetch(`http://localhost:4000/conversations`, {
+            method: 'get',
+            headers: {
+                Authorization: localStorage.token
+            }
+        })
             .then(resp => resp.json())
-            .then(conversation => setCurrentConversation(conversation))
-
+            .then(data => setCurrentConversation(data))
     }, [])
 
     console.log(user)
@@ -133,28 +133,30 @@ export default function Chat() {
                                 </div>
 
                                 <div className="chat-history">
-                                    {/* {currentConversation?.chats.map(message => */}
-                                    <ul className="m-b-0">
-                                        <li className="clearfix">
-                                            <div className="message-data text-right">
+                                    {
+                                        //@ts-ignore
+                                        currentConversation?.map((message: Chat) =>
+                                            <ul className="m-b-0">
+                                                <li className="clearfix">
+                                                    <div className="message-data text-right">
 
-                                            </div>
-                                            <div className="message other-message float-right">
-                                                {/* {message.messageText} */}
-                                            </div>
-                                        </li>
+                                                    </div>
+                                                    <div className="message other-message float-right">
+                                                        {message.messageText}
+                                                    </div>
+                                                </li>
 
-                                        <li className="clearfix">
-                                            <div className="message my-message">
-                                                {/* {message.messageText} */}
-                                            </div>
-                                        </li>
+                                                <li className="clearfix">
+                                                    <div className="message my-message">
+                                                        {message.messageText}
+                                                    </div>
+                                                </li>
 
-                                        {/* <li className="clearfix">
-                                                <div className="message my-message">Project has been already finished and I have results to show you.</div>
-                                            </li> */}
-                                    </ul>
-                                    {/* )} */}
+                                                <li className="clearfix">
+                                                    {/* <div className="message my-message">Project has been already finished and I have results to show you.</div> */}
+                                                </li>
+                                            </ul>
+                                        )}
 
                                 </div>
 
@@ -167,7 +169,7 @@ export default function Chat() {
                                             onSubmit={(e) => {
                                                 e.preventDefault()
                                                 //@ts-ignore
-                                                createMessage(e.text.value)
+                                                createMessage(e.target.text.value)
                                             }}>
                                             <input type="text" className="form-control" name='text' placeholder="Enter text here..." required
 
